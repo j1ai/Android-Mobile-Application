@@ -1,26 +1,15 @@
-# YOUR PRODUCT/TEAM 16
+# Optimizing Schedule/TEAM 16
 
  > _Note:_ This document is meant to evolve throughout the planning phase of your project.    
  > That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section).
 
 #### Q1: What are you planning to build?
 
-YOUR ANSWER GOES HERE ...
 
-Our product is a schedule optimizer that offers suggestions on what priority to place on various assignments and tests. The problem we are trying to address is that students have a hard time managing their time and don’t know how to prioritize efficiently especially when under stress. We are planning to build a mobile app allowing students to allocate their time to meet the academic goals that they provide.
+Our product is a schedule optimizer that offers suggestions on what priority to place on various assignments and tests. The optimizer would allow users to specify their own academic goals and output a schedule based on course material weights and estimated difficulty. For example, a student can choose to put less effort on an easier course to save time for more demanding courses. The app would have daily prompts to stay up to date with the user’s progress and dynamically update the schedule to accommodate unforeseen events. The problem we are trying to address is that students have a hard time managing their time and don’t know how to prioritize efficiently especially when under stress. Our app would attempt to solve this problem by taking as much information as possible about the users time and provide a dynamic plan of action. We are planning to build a mobile app allowing students to allocate their time to meet the academic goals that they provide. In addition, other features we are considering is to include extracurricular events and activities and integrate them with the user’s academic schedule.
 
-For example, a student is in the middle of midterm season and has 3 midterms and 4 assignments with just 5 days to get ready for everything. It would be very difficult to complete all these tasks at a high level so the student needs to decide what to prioritize. Our app would calculate how much time to allocate to each task and present a few reasonable solutions. One recommended suggestion the app would say is: “Spend 5 hours studying for midterm2, Skip your 9:00am lecture since there’s no upcoming tasks for this class(Allocate time to catch up next week!), consider using 2 grace tokens on A2 since its only worth 5%.”
+For example, a student is in the middle of midterm season and has 3 midterms and 4 assignments with just 5 days to get ready for everything. It would be very difficult to complete all these tasks at a high level so the student needs to decide what to prioritize. Our app would calculate how much time to allocate to each task and present a few reasonable solutions. One recommended suggestion the app would say is: “Spend 5 hours studying for midterm2, Skip your 9:00am lecture since there’s no upcoming tasks for this class(Allocate time to catch up next week!), consider using 2 grace tokens on A2 since its only worth 5%.” The student can now choose which path to take. Additionally, the user can pick and choose between our provided solutions to customize their plans.
 
- * Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
 
 
 #### Q2: Who are your target users?
@@ -50,24 +39,13 @@ Jim is also a highly possible user as he still needs to learn proper study habit
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-Currently students make their own schedules with calendar apps. Students do not have time to make their own schedules. Our app would be providing the schedules for them and optimize their time depending on their needs. It would also be able to manage non academic programs. Time would be saved through a dynamically updating schedule that fits the user’s needs. Users would have access to optimal schedules and goal setting while also being able to keep track of their academic progress.
+Currently students make their own schedules with calendar apps. Students do not have time to make their own schedules or keep updating them throughout the semester. The task of having to maintain a schedule is stressful and time consuming. Our app would be providing the schedules for them and optimize their time depending on their needs. Also, our app would dynamically keep up with changes and make the necessary updates. It would also be able to manage non academic programs. Time would be saved through a dynamically updating schedule that fits the user’s needs. Unlike regular calendar apps, our app would ask for daily updates and provide feedback on your academic progress depending on your provided goals, in addition to providing regular deadline reminders. Users would have access to optimal schedules and goal setting while also being able to keep track of their academic progress.
+
 
 ### Highlights
-
-YOUR ANSWER GOES HERE ...
 
 - We decided to meet up and work on deliverable 1 together
 - finalized our project idea to be an optimizing schedule app
 - decided to use the platform of a mobile app
 - specified our target audience to be students needing time management help
 
-
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
-
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product plan.
