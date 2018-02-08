@@ -30,8 +30,6 @@
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to present your project idea.
-clearer.
 - Storyboard: Give an example of how and why the product would be used.
 - App images: Images to provide example visuals of U.I.
 
