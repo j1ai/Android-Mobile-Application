@@ -25,42 +25,32 @@ For example, a student is in the middle of midterm season and has 3 midterms and
 
 #### Q2: Who are your target users?
 
-YOUR ANSWER GOES HERE ...
-Our target audience is post secondary students that need help with time management and have heavy workload.
+Our target audience are UofT students who have trouble sticking to a schedule and who have trouble focusing on their studies. This product will also be for students who have plenty of extracurriculars and have trouble balancing that with doing well in their classes. 
+
 
 PERSON 1(Sally):
 - 3rd Year Engineering student taking 6 courses to get ahead.
 - Hopes to maintain a 4.0 average
 - Attends all lectures, does extra credit.
+- Is a key member to 3 school clubs
+- Becomes anxious very easily when responsibilities pile up
 
-Sally is an ideal user as she has a heavy schedule and possibly needs to have less things on her plate.
+Sally is an ideal user as she has a heavy schedule and possibly needs to have less things on her plate. This product would help her to not panic when she is swamped with work and will not only prepare her for the more hectic periods of her schedule but would also guide her in the best way to approach it.
 
 PERSON 2(Jim):
 - 1st Year student
 - adjusting to university life, a bit overwhelmed
 - hasn’t made a proper study habits yet.
+- having trouble with chemistry
+- really likes playing video games
+- doesn't properly distribute his time to work on all of his courses
 
-Jim is also a highly possible user as he still needs to learn proper study habits.
+Jim is also a highly possible user as he still needs to learn proper study habits. Since Jim is a chronic procrastinator, this product would help him better plan out when he has time for his games and when it is time to buckle down. Jim is also an excellent user for this product's reminder system, as it will make sure Jim stays on track and focused when doing his school work. 
 
-
- * Short (1 - 2 min' read max)
- * Be specific (e.g. )
- * Feel free (but not obligated) to use personas.        
-   You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-YOUR ANSWER GOES HERE ...
-
- * Short (1 - 2 min' read max)
- * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Explain the benefits of your product explicitly & clearly. For example:
-    * Save users time (how much?)
-    * Allow users to discover new information (which information? And, why couldn't they discover it before?)
-    * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
-
 Currently students make their own schedules with calendar apps. Students do not have time to make their own schedules. Our app would be providing the schedules for them and optimize their time depending on their needs. It would also be able to manage non academic programs. Time would be saved through a dynamically updating schedule that fits the user’s needs. Users would have access to optimal schedules and goal setting while also being able to keep track of their academic progress.
-----
 
 ### Highlights
 
