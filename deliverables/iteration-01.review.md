@@ -45,6 +45,8 @@ List any process-related changes you are planning to make (if there are any)
 
 _This entire section is mandatory._
 
+LINK TO ARTIFACTS https://drive.google.com/open?id=1uxXFhWzugrKgqO5i3bVi-AWP4iuuzb5n
+
 #### Goals and/or tasks that were met/completed:
 
  * From most to least important.
