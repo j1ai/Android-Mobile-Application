@@ -11,21 +11,26 @@
 #### Events
 
 - Meetings on campus and more often online
-- Meetings will plan ahead for what needs to get done and work on deliverables
+- Meetings will be to plan ahead for what needs to get done.
+- In addition meetings will be used to work on deliverables
 - Code reviews
 
 #### Artifacts
 
 - To-do lists and a task board to keep track of what will be done
-- Tasks will be assigned first by voluntary and based on experience.  
+- Tasks will be assigned first voluntarily, otherwise tasks will be assigned based on experience of team members  
 
 
 ## Product
 
 #### Goals and tasks
 
-- Finalize our product idea
-- Decide on a Minimum Viable Product
+- Finalize our product idea: 
+We want to narrow down on a realistic problem for which we can come up with a reasonable and effective solution.
+
+- Decide on a Minimum Viable Product: 
+This will help give us an achievable an realistic goal to work towards throughout the deliverables.
+
 - Complete deliverable 1
 
 #### Artifacts
