@@ -18,7 +18,7 @@ https://drive.google.com/drive/folders/1uxXFhWzugrKgqO5i3bVi-AWP4iuuzb5n
 
 #### Goals and/or tasks that were planned but not met/completed:
 
-- Brainstorm ideas for a social app
+- Brainstorm ideas for a social app:
 We decided not to choose a UofT social app as our project idea and instead planned ideas for a optimizing scheduler.
 
 ## Meeting Highlights
