@@ -23,12 +23,12 @@ We decided not to choose a UofT social app as our project idea and instead plann
 
 ## Meeting Highlights
 
-- Mobile platforms and technology.
+- Mobile platforms and technology: 
 We have decided on a mobile platform in this iteration. We should choose realistic and useable tools to develop with for our project. We will keep in mind the design decisions made in this iteration to tailor our product to our target audience of university students.
 
-- Algorithm design
-Our app will require the use of a dynamic algorithm as the user will need to frequently update their academic progress. We should be able to start thinking about how to design this algorithm to best serve the user. We starting thinking of possibly using constraint satisfaction. We will also need to decide how the algorithm will get its information and how often the user will need to provide updates.
+- Algorithm design: 
+Our app will require the use of a dynamic algorithm as the user will need to frequently update their academic progress. We should be able to start thinking about how to design this algorithm to best serve the user. We starting thinking of possibly using an A.I. algorithm called constraint satisfaction where we can string together the assignments/exams as a collection of constraints on the way to the goal which would ultimately be set by the user (i.e. preferred academic grade etc.). We will also need to decide how the algorithm will get its information and how often the user will need to provide updates.
 
-- Development approach
+- Development approach: 
 Figure out an efficient way to coordinate work between group members. We can decide on how to use git branches, how to deal with merges, and other expected development issues.
 
