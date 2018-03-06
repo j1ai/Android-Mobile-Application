@@ -70,6 +70,12 @@ public class MenuActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        else if (id == R.id.about) {
+            return true;
+        }
+        else if (id == R.id.help) {
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
