@@ -1,5 +1,6 @@
 package chubbs.mymenu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -94,6 +95,11 @@ public class MenuActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_about) {
 
+        }
+        //doesn't actually sign out (i dont believe), just brings back to starter screen
+        //so the user is still cached in the system
+        else if (id == R.id.nav_signout) {
+            startActivity(new Intent(MenuActivity.this, LoginActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
