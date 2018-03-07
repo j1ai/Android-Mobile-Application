@@ -1,6 +1,8 @@
 # project-team-16
 
-## chernou1:
+## from now on use the strings.xml located in res/values instead of hardcoding literals
+
+### chernou1:
 
 * added login activty and made it the launcher
 * email and password are both "asdf"
@@ -10,4 +12,4 @@
 ### NOTE:
 
 - no real authentication or user storage is implemented as of yet, also signing out doesn't actually "sign out", just goes back to the opening screen... gotta remove from cache later on or something
-- from now on use the strings.xml located in res/values instead of hardcoding literals
+
