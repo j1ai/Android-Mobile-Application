@@ -1,6 +1,6 @@
 # project-team-16
 
-## from now on use the strings.xml located in res/values instead of hardcoding literals
+## use the *strings.xml* located in *res/values* instead of hardcoding literals
 
 ### chernou1:
 
