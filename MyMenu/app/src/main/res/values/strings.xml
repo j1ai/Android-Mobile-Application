@@ -29,6 +29,14 @@
         <item>Minor</item>
     </string-array>
 
-    
-    
+    <string name="crsname">Name</string>
+    <string name="newassessment">New Assessment (Ex. A1, Midterm)</string>
+    <string name="weight">Weight</string>
+    <string name="addToSyllabus">Add</string>
+    <string name="rmToSyllabus">Remove</string>
+    <string name="CSC301">CSC301</string>
+    <string name="dueDate">Due Date</string>
+
+
+
 </resources>
