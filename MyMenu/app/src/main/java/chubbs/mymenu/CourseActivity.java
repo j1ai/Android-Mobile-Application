@@ -1,10 +1,10 @@
 package chubbs.mymenu;
 
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -33,7 +33,7 @@ public class CourseActivity extends AppCompatActivity {
 
         ListView courselist = findViewById(R.id.courselist);
         courselist.setAdapter(adapter);
-        FloatingActionButton addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
+        Button addCourse = findViewById(R.id.addcourseButton);
         addCourse.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
 
@@ -43,4 +43,34 @@ public class CourseActivity extends AppCompatActivity {
             }
         });
     }
+
+    public ArrayList<String> loadJSONFromAsset() {
+        ArrayList<String> courseList = new ArrayList<>();
+        String json = null;
+        try {
+            InputStream is = getAssets().open("course.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        try {
+            JSONObject obj = new JSONObject(json);
+            JSONArray m_jArry = obj.getJSONArray("courses");
+
+            for (int i = 0; i < m_jArry.length(); i++) {
+                JSONObject jo_inside = m_jArry.getJSONObject(i);
+                courseList.add(jo_inside.getString("key"));
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return courseList;
+    }
+
 }
