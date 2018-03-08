@@ -1,10 +1,10 @@
 package chubbs.mymenu;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -28,7 +28,7 @@ public class CourseActivity extends AppCompatActivity {
 
         ListView courselist = findViewById(R.id.courselist);
         courselist.setAdapter(adapter);
-        Button addCourse = findViewById(R.id.addcourseButton);
+        FloatingActionButton addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
         addCourse.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
 
