@@ -7,30 +7,35 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_main"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="Main Page" />
         <item
             android:id="@+id/nav_schedule"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_today_black_24dp"
             android:title="View Schedule" />
         <item
             android:id="@+id/nav_task"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_add_box_black_24dp"
             android:title="Add Task" />
         <item
             android:id="@+id/nav_stats"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_show_chart_black_24dp"
             android:title="Statistics and Progress" />
         <item
             android:id="@+id/nav_info"
+            android:icon="@drawable/ic_school_black_24dp"
             android:title="Course Information" />
         <item
             android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help_black_24dp"
             android:title="Help" />
         <item
             android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_black_24dp"
             android:title="About" />
         <item
             android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
             android:title="Sign out" />
     </group>
 </menu>
