@@ -9,7 +9,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class CourseActivity extends AppCompatActivity {
@@ -38,5 +43,4 @@ public class CourseActivity extends AppCompatActivity {
             }
         });
     }
-
 }
