@@ -82,7 +82,7 @@ public class MenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_main) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_schedule) {
 
         } else if (id == R.id.nav_task) {

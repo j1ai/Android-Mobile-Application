@@ -193,6 +193,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            //Where to go after sign in is pressed
             startActivity(new Intent(LoginActivity.this, MenuActivity.class));
         }
     }
