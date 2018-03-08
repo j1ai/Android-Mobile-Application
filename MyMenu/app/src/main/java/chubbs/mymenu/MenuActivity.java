@@ -86,7 +86,7 @@ public class MenuActivity extends AppCompatActivity
         } else if (id == R.id.nav_schedule) {
 
         } else if (id == R.id.nav_task) {
-
+            startActivity(new Intent(MenuActivity.this, CourseActivity.class));
         } else if (id == R.id.nav_stats) {
 
         } else if (id == R.id.nav_info) {
