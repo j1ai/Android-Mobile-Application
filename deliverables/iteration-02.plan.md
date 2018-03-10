@@ -63,4 +63,4 @@ All developers work on the back end as well as teams of 2 or 3 work on the three
   
  * Paper prototype storyboard: This is the drawn design of user navigation through the app and page design of individual pages.
  * Screen shot storyboard: This is a more developed design storyboard showing screenshots of our coded app.
-
+ * Algorithm artifact: Brainstorming possible factors for determining the task of priotorization for the student.
