@@ -82,7 +82,9 @@
                 android:text=" 15:00-16:00" />
 
             <TextView
+
                 android:layout_width="wrap_content"
+
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_margin="1dp"
