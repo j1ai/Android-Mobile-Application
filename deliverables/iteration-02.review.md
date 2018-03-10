@@ -26,23 +26,24 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
 
 List any process-related changes you are planning to make (if there are any)
 
- * Ordered from most to least important.
- * Explain why you are making a change.
+* We plan to use JSON in order to keep track of all information that needs to persist. We originally thought that we would not need to separate users' info into separate elements, thus removing the need for a database, but we were wrong. So, we plan to use JSON in order to create a object-oriented database in order for each unique user to have their own information and schedule saved under their name.
 
 
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
 
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
+ * Finished login page for app. Refer to project-team-16/MyMenu/app/src/main/java/chubbs/mymenu/LoginActivity.java for implementation
+ * FInished course activity page, which allows you to add courses to your schedule to later be optimized. Refer to project-team-16/MyMenu/app/src/main/java/chubbs/mymenu/CourseActivity.java for implementation
+ * Finished drop down menu for app. Refer to project-team-16/MyMenu/app/src/main/java/chubbs/mymenu/MenuActivity.java for implementation
+ * Finished syllabus update function, where you are able to schedule assignments and tests in accordance to course syllabi.Refer to project-team-16/MyMenu/app/src/main/java/chubbs/mymenu/UpdateSyllabusActivity.java
+* Finished home page of app. Refer to project-team-16/MyMenu/app/src/main/java/chubbs/mymenu/MainActivity.java for implementation
+* Finished task scheduler, where the app keeps track of any extracurricular activities that the user would like to add to his/her schedule. refer to project-team-16/MyMenu/app/src/main/java/chubbs/mymenu/TaskActivitiy.java
 
+ 
 #### Goals and/or tasks that were planned but not met/completed:
 
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
+* We were unable to start coding the back end of our app due to time constraints, and a majority of members having mid terms and other big assignments to take care of. This part of the app will be addressed for the next deliverable
 
 ## Meeting Highlights
 
