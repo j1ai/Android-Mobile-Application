@@ -67,4 +67,4 @@ List/describe the artifacts you will produce in order to present your project id
   
  * Paper prototype storyboard: This is the drawn design of user navigation through the app and page design of individual pages.
  * Screen shot storyboard: This is a more developed design storyboard showing screenshots of our coded app.
-
+ * Algorithm brainstorm: came up with possible factors for our next phase in implementing prioritizing in the user's tasks.
