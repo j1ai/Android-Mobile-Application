@@ -1,160 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-    <LinearLayout
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:orientation="horizontal"></LinearLayout>
+        android:layout_height="match_parent"
+        tools:context="chubbs.mymenu.UpdateSyllabusActivity">
 
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="117dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/welcomeMessage"
-            android:layout_width="400dp"
-            android:layout_height="147dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Welcome asdf." />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="139dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/dailyQuote"
-            android:layout_width="400dp"
-            android:layout_height="147dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="The way to get started is to quit talking and begin doing. - Walt Disney" />
-
-    </LinearLayout>
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="400dp">
+
+        android:layout_width="364dp"
+        android:layout_height="319dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:stretchColumns="0,1,2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:gravity="center_horizontal">
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="#000000"
+
+            >
 
             <TextView
-                android:id="@+id/titleTime"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="Time" />
+                android:text=" Time "
+
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/TitleTask"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="Task" />
+                android:text="Task"
+
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/titleModify"
-                android:layout_width="75dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Modify Task" />
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Edit Task"
 
-
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:gravity="center_horizontal">
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="#000000">
 
             <TextView
-                android:id="@+id/taskTimeOne"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="11:00-12:00" />
+                android:text=" 15:00-16:00" />
 
             <TextView
-                android:id="@+id/taskOne"
-                android:layout_width="200dp"
-                android:layout_height="75dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="CSC373 Problem Set 3" />
+                android:text="CSC 301 Assignment 1" />
 
             <Button
-                android:id="@+id/buttonOne"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:text="+" />
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Edit" />
+        </TableRow>
 
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="#000000">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="16:00-17:00" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="CSC 373 Midterm 2" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Edit" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:gravity="center_horizontal">
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="#000000">
 
             <TextView
-                android:id="@+id/taskTimeTwo"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="12:00-2:00" />
+                android:text="17:00-`18:00" />
 
             <TextView
-                android:id="@+id/taskTwo"
-                android:layout_width="200dp"
-                android:layout_height="75dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="CSC301 Deliverable 2" />
+                android:text="CSC 384 Assignment 2" />
 
             <Button
-                android:id="@+id/buttonTwo"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:text="+" />
-
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Edit" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:gravity="center_horizontal">
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="#000000">
 
             <TextView
-                android:id="@+id/taskTimeThree"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="2:00-4:00" />
+                android:text="18:00-19:00" />
 
             <TextView
-                android:id="@+id/taskThree"
-                android:layout_width="200dp"
-                android:layout_height="75dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="Yoga Session at BA 2190" />
+                android:text="CSC 418 Assignment 2" />
 
             <Button
-                android:id="@+id/buttonThree"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:text="+" />
-
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Edit" />
         </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="#000000">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="19:00-21:00" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="CSC 369 Midterm 1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Edit" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="#000000">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="21:00-22:00" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="MAT 351 Problem Set 4" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Edit" />
+        </TableRow>
+
     </TableLayout>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:text="Welcome Sandy. Here is your schedule for today."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="378dp"
+        android:layout_height="84dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="180dp"
+        android:text="The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart. Helen Keller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
