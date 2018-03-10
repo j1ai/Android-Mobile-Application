@@ -4,10 +4,8 @@
 
 ### chernou1:
 
-* added login activty and made it the launcher
-* email and password are both "asdf"
-* signing in brings us to the menu activity done by Chubbles6
-* added option in menu activity to sign out and return to sign in page
+* register now goes through course activity and update syllabus activity
+* sign in goes straight to the menu activity
 
 ### NOTE:
 
