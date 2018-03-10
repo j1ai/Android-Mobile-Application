@@ -85,9 +85,9 @@ public class MenuActivity extends AppCompatActivity
             //if not already on main page.
             //startActivity(new Intent(MenuActivity.this, MainActivity.class));
         } else if (id == R.id.nav_schedule) {
-            startActivity(new Intent(MenuActivity.this, UpdateSyllabusActivity.class));
+
         } else if (id == R.id.nav_task) {
-            startActivity(new Intent(MenuActivity.this, CourseActivity.class));
+            //need
         } else if (id == R.id.nav_stats) {
 
         } else if (id == R.id.nav_info) {
