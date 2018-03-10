@@ -1,7 +1,7 @@
 # Team 16
 
 
-## Iteration XX - Review & Retrospect
+## Iteration 02 - Review & Retrospect
 
  * When: March 9, 2018
  * Where: Tutorial in BA2185
