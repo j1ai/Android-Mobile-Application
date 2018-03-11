@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_app">Procrastinator</string>
+    <string name="title_app">OptiPlan</string>
     <string name="title_menu">Main menu</string>
     <string name="subtitle_menu">Various tools for your calendar organizer</string>
 
@@ -33,7 +33,7 @@
     <string name="weight">Weight</string>
     <string name="addToSyllabus">Add</string>
     <string name="rmToSyllabus">Remove</string>
-    <string name="CSC301">CSC301</string>
+    <string name="CSC301">CSC373</string>
     <string name="dueDate">Due Date</string>
 
     <string name="coursesTitle">Courses</string>
