@@ -59,3 +59,5 @@ Going into the next iteration, our main insights are:
 
 * User Friendly Registrations: Our current User's Registration procedure can be improved into a more user friendly way. 
 For now, the user has to input their basic information (i.e their current tasks, courses, extra-curricular activities schedule) by hand, which might cause inconvenience for them. Going into the next iteration, we can implement a SEARCH & FILTER function in our registration procedure. We will utilize the data we collected from the UOFT API, and provide a more user friendly way for new users to input their courses/tasks schedule. 
+
+* Algorithm Design: Unfortunately, we did not have enough time to design and implement our dynamic algorithm in our current application. In the next iteration, we need to develop a dynamic approach to frequently update users' academic progress, and implement an algorithm that will gather users' information and to provide updates in a certain period of time. 
