@@ -24,18 +24,22 @@
         <activity
             android:name=".UpdateSyllabusActivity"
             android:label="@string/title_app"
-            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan"
             >
 
 
         </activity>
+        <activity
+            android:name=".TaskActivity"
+            android:label="@string/title_app"
+            >
 
+
+        </activity>
         <activity
             android:name=".CourseActivity"
             android:label="@string/title_app"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:windowSoftInputMode="adjustPan">
 
 
         </activity>
