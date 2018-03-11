@@ -1,4 +1,4 @@
-# Team 16
+# OptiPlan/Team 16
 
 
 ## Iteration 02 - Review & Retrospect
@@ -19,7 +19,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  
  * Deciding to collaborate on the demo script while all of us were in one room. This decision was successful because it made writing the script more straightforward and minimized the risk of creative blocks with seven people contributing to the script.
  
- * Algorithm To-do List artifact: https://github.com/csc301-winter-2018/project-team-16/blob/master/deliverables/algorithm%20artifact%20.jpg|alt=octocat
+ * Algorithm To-do List artifact: https://github.com/csc301-winter-2018/project-team-16/blob/master/deliverables/algorithm%20artifact%20.jpg
  
 #### Decisions that did not turn out as well as we hoped
 
