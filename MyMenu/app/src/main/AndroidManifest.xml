@@ -34,6 +34,7 @@
         <activity
             android:name=".CourseActivity"
             android:label="@string/title_app"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar">
 
 
