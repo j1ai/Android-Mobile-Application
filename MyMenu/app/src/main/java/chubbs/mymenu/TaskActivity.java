@@ -36,7 +36,7 @@ public class TaskActivity extends AppCompatActivity {
                         .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                String task = String.valueOf(taskEditText.getTexxt());
+                                String task = String.valueOf(taskEditText.getText());
                                 Log.d(TAG, "Task to add: " + task);
                             }
                         })
