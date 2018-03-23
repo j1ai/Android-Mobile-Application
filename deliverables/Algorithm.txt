@@ -1,0 +1,46 @@
+
+
+OptiPlan Scheduling Algorithm - Weighted Interval Scheduling
+
+
+Input: n, E[e1,...,en] , D[d1,...,dn] , W[w1,...,wn]
+
+n - # of jobs(assignments)
+E - estimated completion time(hours, Optional input with default value (1/4)D)
+D - Time till due date(hours)
+W - weight(%)
+
+
+
+
+1.Sort E,D,W chronologically by due date so that d1 ≤ d2 ≤ ... ≤ dn. 
+
+
+
+2. Compute p(1), p(2), ..., p(n)
+
+Def. p(j) = largest index i < j such that job i is compatible with j.
+
+p(j) {
+    max = 0
+    currentTime = 0
+    for (i = 1 to j)
+        if (di < (dj - ej) )
+            max = i;
+
+        if (currentTime  + ei < dj - ej)
+            currentTime += ei
+            max = i
+
+    return max
+}
+
+
+
+3. Run Iterative-Compute-Opt. Return OPT[n].
+
+Iterative-Compute-Opt {
+   OPT[0] = 0
+   for j = 1 to n
+        OPT[j] = max(wj + OPT[p(j)], OPT[j-1])
+    }
