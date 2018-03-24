@@ -45,6 +45,8 @@ public class CourseActivity extends AppCompatActivity {
                 EditText input =  findViewById(R.id.courseinput);
                 listItems.add(input.getText().toString());
                 adapter.notifyDataSetChanged();
+
+                input.getText().clear();
             }
         });
 
