@@ -59,14 +59,12 @@
             android:layout_weight=".3"
             android:text="Time:" />
 
-        <EditText
-            android:id="@+id/taskTime"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:imeOptions="actionDone"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="13dp"
+            android:layout_height="115dp"
+            android:layout_weight="1"
+            android:timePickerMode="spinner" />
     </LinearLayout>
 
 
