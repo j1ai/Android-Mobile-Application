@@ -126,19 +126,21 @@ public class CourseActivity extends BaseActivity {
     private void writeNewCourse(String userId, String username, String cid) {
         // Create new post at /user-posts/$userid/$postid and at
         // /posts/$postid simultaneously
-        String key = mDatabase.child("posts").push().getKey();
+        String key = mDatabase.child("courses").push().getKey();
         Course course = new Course(cid);
         Map<String, Object> postValues = course.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put("/posts/" + key, postValues);
-        childUpdates.put("/user-posts/" + userId + "/" + key, postValues);
+        childUpdates.put("/courses/" + key, postValues);
+        childUpdates.put("/user-courses/" + userId + "/" + key, postValues);
 
         mDatabase.updateChildren(childUpdates);
     }
     // [END write_fan_out]
 
 
+    // Ignore this part
+    
     public ArrayList<String> loadJSONFromAsset() {
         ArrayList<String> courseList = new ArrayList<>();
         String json = null;
