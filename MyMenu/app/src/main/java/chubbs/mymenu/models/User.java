@@ -1,7 +1,5 @@
-package chubbs.mymenu;
-/**
- * Created by j1ai on 22/03/18.
- */
+package chubbs.mymenu.models;
+
 import com.google.firebase.database.IgnoreExtraProperties;
 
 // [START blog_user_class]
@@ -21,3 +19,4 @@ public class User {
     }
 
 }
+// [END blog_user_class]
