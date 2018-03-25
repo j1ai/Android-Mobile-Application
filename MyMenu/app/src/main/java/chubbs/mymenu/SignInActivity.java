@@ -60,6 +60,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         }
     }
 
+
     private void signIn() {
         Log.d(TAG, "signIn");
         if (!validateForm()) {
@@ -121,9 +122,10 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         writeNewUser(user.getUid(), username, user.getEmail());
 
         // Go to MainActivity
-        startActivity(new Intent(SignInActivity.this, MenuActivity.class));
+        startActivity(new Intent(SignInActivity.this, CourseActivity.class));
         finish();
     }
+
 
     private String usernameFromEmail(String email) {
         if (email.contains("@")) {
