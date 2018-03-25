@@ -22,7 +22,7 @@
         completions."
     </string>
 
-        <string-array name="types">
+    <string-array name="types">
         <item>Specialist</item>
         <item>Major</item>
         <item>Minor</item>
@@ -38,4 +38,5 @@
 
     <string name="coursesTitle">Courses</string>
     <string name="nextStep">Next</string>
+    <string name="email">email</string>
 </resources>
