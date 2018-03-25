@@ -17,43 +17,26 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_app"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".UpdateSyllabusActivity"
             android:label="@string/title_app"
-            android:windowSoftInputMode="adjustPan"
-            >
-
-
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".TaskActivity"
             android:label="@string/title_app"
-            android:theme="@style/AppTheme.NoActionBar">
-
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".CourseActivity"
             android:label="@string/title_app"
-            android:windowSoftInputMode="adjustPan">
-
-
-        </activity>
-
-        <!-- we're setting login activity as the launch activity -->
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_app">
+            android:windowSoftInputMode="adjustPan"></activity>
+        <!-- we're setting signin activity as the launch activity -->
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
