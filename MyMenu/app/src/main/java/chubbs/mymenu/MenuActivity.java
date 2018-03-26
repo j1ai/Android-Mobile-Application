@@ -73,8 +73,6 @@ public class MenuActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_schedule) {
 
-        } else if (id == R.id.nav_majors) {
-
         } else if (id == R.id.nav_courses) {
 
         } else if (id == R.id.nav_tasks) {
