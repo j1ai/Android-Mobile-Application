@@ -1,4 +1,8 @@
+package chubbs.mymenu;
+
 import java.util.Comparator;
+
+import chubbs.mymenu.models.Job;
 
 class JobComparator implements Comparator<Job>
 {

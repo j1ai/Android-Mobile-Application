@@ -1,5 +1,9 @@
+package chubbs.mymenu;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import chubbs.mymenu.models.Job;
 
 public class WeightedJob {
     /* A Binary Search based function to find the latest job
