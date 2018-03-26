@@ -1,3 +1,5 @@
+package chubbs.mymenu.models;
+
 public class Job {
     private int startTime;
     private int finishTime;
