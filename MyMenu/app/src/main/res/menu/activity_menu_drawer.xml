@@ -26,10 +26,6 @@
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="Manage Courses" />
         <item
-            android:id="@+id/nav_majors"
-            android:icon="@drawable/ic_settings_applications_black_24dp"
-            android:title="Manage Majors" />
-        <item
             android:id="@+id/nav_stats"
             android:icon="@drawable/ic_show_chart_black_24dp"
             android:title="Statistics and Progress" />
