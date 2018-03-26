@@ -4,10 +4,10 @@
 
 ## To have a toolbar with navigation on each page every activity must follow this format:
 
->DrawerLayout
+> DrawerLayout
 
-  >include some content page or just simply put your content in here
+  > include some content page or just simply put your content in here
   
-  >include app_bar_menu
+  > include app_bar_menu
   
-  >NavigationView
+  > NavigationView
