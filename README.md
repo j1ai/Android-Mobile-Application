@@ -6,8 +6,8 @@
 
 > DrawerLayout
 
-  > include some content page or just simply put your content in here
+  > >include some content page or just simply put your content in here
   
-  > include app_bar_menu
+  > >include app_bar_menu
   
-  > NavigationView
+  > >NavigationView
