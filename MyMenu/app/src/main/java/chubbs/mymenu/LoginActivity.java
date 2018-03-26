@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     /**
      * Id to identity READ_CONTACTS permission request.
      */
-    //private static final int REQUEST_READ_CONTACTS = 0;
+    private static final int REQUEST_READ_CONTACTS = 0;
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -106,14 +106,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private void populateAutoComplete() {
-        /*if (!mayRequestContacts()) {
+        if (!mayRequestContacts()) {
             return;
-        }*/
+        }
 
         getLoaderManager().initLoader(0, null, this);
     }
 
-    /*private boolean mayRequestContacts() {
+    private boolean mayRequestContacts() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true;
         }
@@ -133,12 +133,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
         }
         return false;
-    }*/
+    }
 
     /**
      * Callback received when a permissions request has been completed.
      */
-    /*@Override
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (requestCode == REQUEST_READ_CONTACTS) {
@@ -146,7 +146,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 populateAutoComplete();
             }
         }
-    }*/
+    }
 
 
     /**
@@ -205,14 +205,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             //this is the background task thats int the userlogin task class?
             mAuthTask.execute((Void) null);
             //Where to go after sign in is pressed
-            startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
     }
 
     private void attemptRegister(){
         //Will need to write to JSON or something and store in a text file
         // but for now just enter pages in different order
-        startActivity(new Intent(LoginActivity.this, CourseActivity.class));
+        startActivity(new Intent(LoginActivity.this, UpdateSyllabusActivity.class));
     }
 
     private boolean isEmailValid(String email) {
@@ -331,7 +331,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
 
             try {
                 // Simulate network access.
@@ -347,8 +346,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     return pieces[1].equals(mPassword);
                 }
             }
-
-            // TODO: register the new account here.
             return true;
         }
 
