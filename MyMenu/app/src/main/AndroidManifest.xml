@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MenuActivity"
+            android:name=".MainActivity"
             android:label="@string/title_app"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -30,6 +30,11 @@
             android:name=".CourseActivity"
             android:label="@string/title_app"
             android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ManageCoursesActivity"
+            android:label="@string/title_app"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <!-- we're setting signin activity as the launch activity -->
         <activity android:name=".SignInActivity">
             <intent-filter>
@@ -38,7 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ManageCoursesActivity"></activity>
     </application>
 
 </manifest>

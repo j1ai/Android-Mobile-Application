@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -25,7 +24,6 @@ public class UpdateSyllabusActivity extends AppCompatActivity {
     EditText item1, weight1;
     DatePicker datePicker;
     int day, month, year;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +128,7 @@ public class UpdateSyllabusActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new OnClickListener(){
             public void onClick(View view){
 
-                startActivity(new Intent(UpdateSyllabusActivity.this, MenuActivity.class));
+                startActivity(new Intent(UpdateSyllabusActivity.this, MainActivity.class));
             }
         });
 
