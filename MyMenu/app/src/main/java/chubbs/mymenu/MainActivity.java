@@ -18,6 +18,15 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        createToolbar();
+    }
+
+    /*
+    * method to create toolbars
+    * this main activity will be inherited by all subsequent activities
+    * use super.createToolbar()*/
+    public void createToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -91,7 +100,7 @@ public class MainActivity extends AppCompatActivity
         //doesn't actually sign out (i dont believe), just brings back to starter screen
         //so the user is still cached in the system
         else if (id == R.id.nav_signout) {
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, SignInActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

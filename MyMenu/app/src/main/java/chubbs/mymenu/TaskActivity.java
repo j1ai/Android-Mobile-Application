@@ -23,19 +23,8 @@ public class TaskActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
-        //tool bar/navigation
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        //tool bar/navigation end
+        //since we're inheriting main activity. just call the super method to create our toolbar
+        super.createToolbar();
 
         FloatingActionButton addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
         addCourse.setOnClickListener(new View.OnClickListener(){

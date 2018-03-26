@@ -36,7 +36,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- we're setting signin activity as the launch activity -->
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

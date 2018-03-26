@@ -25,7 +25,6 @@ public class UpdateSyllabusActivity extends AppCompatActivity {
     DatePicker datePicker;
     int day, month, year;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ListView list;
