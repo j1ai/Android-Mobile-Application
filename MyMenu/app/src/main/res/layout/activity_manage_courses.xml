@@ -1,33 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    tools:context="chubbs.mymenu.ManageCoursesActivity">
+    android:layout_height="match_parent" >
 
-    <include
-        layout="@layout/activity_listview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <include
-        layout="@layout/app_bar_menu"
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_menu"
-        app:menu="@menu/activity_menu_drawer">
+        tools:openDrawer="start"
+        tools:context="chubbs.mymenu.ManageCoursesActivity">
 
-    </android.support.design.widget.NavigationView>
-</android.support.v4.widget.DrawerLayout>
+        <include
+            layout="@layout/activity_listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/app_bar_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_menu"
+            app:menu="@menu/activity_menu_drawer">
+
+        </android.support.design.widget.NavigationView>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".ListActivity" >
+
+            <ListView
+                android:id="@+id/mobile_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ListView>
+
+        </LinearLayout>
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/label"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="10dip"
+            android:textSize="16dip"
+            android:textStyle="bold" >
+        </TextView>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</FrameLayout>
