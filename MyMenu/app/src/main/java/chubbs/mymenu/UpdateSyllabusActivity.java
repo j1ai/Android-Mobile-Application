@@ -3,7 +3,6 @@ package chubbs.mymenu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,7 +14,11 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class UpdateSyllabusActivity extends AppCompatActivity {
+import chubbs.mymenu.DataAccess.ManageData;
+import chubbs.mymenu.models.Assessment;
+
+
+public class UpdateSyllabusActivity extends BaseActivity {
 
 
     private ArrayAdapter<String> adapter;
@@ -24,10 +27,14 @@ public class UpdateSyllabusActivity extends AppCompatActivity {
     EditText item1, weight1;
     DatePicker datePicker;
     int day, month, year;
+    private ManageData db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ListView list;
+        //Set Up managing data
+        db = new ManageData(this);
+        db.addDocument("ASSESSMENTS");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update_syllabus);
@@ -84,10 +91,18 @@ public class UpdateSyllabusActivity extends AppCompatActivity {
                 }
 
                 else{
-                    listItems.add(item1.getText().toString() + "                 "
-                            + weight1.getText().toString() +
+                    String name = item1.getText().toString();
+                    String w = weight1.getText().toString();
+                    int weightvalue = Integer.parseInt(w);
+                    String date = day + "/" + month + "/" + year;
+
+                    listItems.add( name + "                 "
+                            + w +
                             "%                    " +
-                            day + "/" + month + "/" + year);
+                            date);
+
+                    Assessment newAssessment = new Assessment(name,weightvalue,date);
+                    db.addAssessment(newAssessment);
                     adapter.notifyDataSetChanged();
 
                     item1.getText().clear();
@@ -111,10 +126,16 @@ public class UpdateSyllabusActivity extends AppCompatActivity {
                 month = datePicker.getMonth() + 1; //indexes start at 0
                 year = datePicker.getYear();
 
-                listItems.remove(item1.getText().toString() + "                 "
-                        + weight1.getText().toString() +
+                String name = item1.getText().toString();
+                String weight = weight1.getText().toString();
+                int weightvalue = Integer.parseInt(weight);
+                String date = day + "/" + month + "/" + year;
+
+                listItems.remove( name + "                 "
+                        + weight +
                         "%                    " +
-                        day + "/" + month + "/" + year);
+                        date);
+
                 adapter.notifyDataSetChanged();
 
                 item1.getText().clear();

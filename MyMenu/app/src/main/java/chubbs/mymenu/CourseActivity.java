@@ -11,9 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import chubbs.mymenu.DataAccess.ManageData;
 import chubbs.mymenu.models.Course;
 
 public class CourseActivity extends BaseActivity {
@@ -29,14 +27,11 @@ public class CourseActivity extends BaseActivity {
     private ArrayAdapter<String> adapter;
     ArrayList<String> listItems=new ArrayList<>();
 
-    private FirebaseFirestore mFirestore;
-    private Query mQuery;
-
     private ListView courselist;
     private FloatingActionButton addCourse;
     private EditText input;
     private static final String TAG = "CourseActivity";
-    private String uid;
+    private ManageData db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +46,8 @@ public class CourseActivity extends BaseActivity {
         courselist.setAdapter(adapter);
         input =  findViewById(R.id.courseinput);
 
-        // Enable Firestore logging
-        FirebaseFirestore.setLoggingEnabled(true);
-
-        // Firestore
-        mFirestore = FirebaseFirestore.getInstance();
-
-        // Get courses
-        mQuery = mFirestore.collection("courses");
-
-        uid = getUid();
-
+        db = new ManageData(this);
+        db.addDocument("COURSES");
 
         addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
         addCourse.setOnClickListener(new View.OnClickListener() {
@@ -81,13 +67,10 @@ public class CourseActivity extends BaseActivity {
 
     private void submitCourse() {
         final String cid = input.getText().toString();
-
+        Course newCourse = new Course(cid);
         listItems.add(cid);
         adapter.notifyDataSetChanged();
-
-        Course newCourse = new Course(cid);
-
-        mFirestore.collection(uid).document("COURSES").collection(cid).add(newCourse);
+        db.addCourse(newCourse);
 
     }
 
