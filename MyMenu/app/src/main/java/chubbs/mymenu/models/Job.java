@@ -6,11 +6,21 @@ public class Job {
     private int weight;
     private String name;
 
+    public Job(){}
+
     public Job(String name_, int start, int finish, int w) {
         name = name_;
         startTime = start;
         finishTime = finish;
         weight = w;
+    }
+
+    public void setStartTime(int startTime) {
+         this.startTime = startTime;
+    }
+
+    public void setFinishTime(int finishTime) {
+        this.finishTime = finishTime;
     }
 
     public String getName() {
@@ -36,4 +46,5 @@ public class Job {
                 weight == ((Job)other).getWeight());
 
     }
+
 }
