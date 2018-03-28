@@ -37,6 +37,8 @@
     <string name="dueDate">Due Date</string>
 
     <string name="coursesTitle">Courses</string>
+    <string name="academicTask">Add Academic Task</string>
+    <string name="extracurricularTask">Add Extracurricular Task</string>
     <string name="nextStep">Next</string>
     <string name="email">email</string>
     <string name="title_activity_scrolling_edit_course">ScrollingEditCourseActivity</string>
