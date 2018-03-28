@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -100,6 +102,7 @@ public class MainActivity extends AppCompatActivity
         //doesn't actually sign out (i dont believe), just brings back to starter screen
         //so the user is still cached in the system
         else if (id == R.id.nav_signout) {
+            FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, SignInActivity.class));
         }
 
