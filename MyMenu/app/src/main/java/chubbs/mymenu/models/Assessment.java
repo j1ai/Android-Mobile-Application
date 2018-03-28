@@ -20,10 +20,12 @@ public class Assessment {
 
     // [START post_to_map]
 
-    public Map<String, Assessment> toMap() {
-        HashMap<String, Assessment> result = new HashMap<>();
-        result.put(name, this);
-        return result;
+    public Map<String, Object> toMap() {
+        Map<String, Object> assessmentMap  = new HashMap<>();
+        assessmentMap.put("name",this.name);
+        assessmentMap.put("weight",this.weight);
+        assessmentMap.put("deadline",this.deadline);
+        return assessmentMap;
     }
     // [END post_to_map]
 }
