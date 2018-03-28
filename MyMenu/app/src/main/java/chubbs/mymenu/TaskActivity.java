@@ -32,6 +32,8 @@ public class TaskActivity extends MainActivity {
                 drawAddTaskPopUp();
             }
         });
+        
+        FloatingActionButton addExtracurricular = (FloatingActionButton) findViewById(R.id.addExtracurricularButton);
     }
 
     public void drawAddTaskPopUp(){
