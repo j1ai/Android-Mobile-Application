@@ -4,12 +4,14 @@ package chubbs.mymenu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +20,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import chubbs.mymenu.DataAccess.ManageData;
 import chubbs.mymenu.models.Course;
@@ -71,7 +74,7 @@ public class CourseActivity extends BaseActivity {
         listItems.add(cid);
         adapter.notifyDataSetChanged();
         db.addCourse(newCourse);
-
+        db.getAllCourses();
     }
 
 

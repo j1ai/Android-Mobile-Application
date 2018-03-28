@@ -19,12 +19,17 @@ public class Course {
         this.cid = cid;
     }
 
+    public void setCid(String cid){
+        this.cid = cid;
+    }
+
+    public String getCid(){return this.cid;}
     // [START post_to_map]
     @Exclude
-    public Map<String, Course> toMap() {
-        HashMap<String, Course> result = new HashMap<>();
-        result.put(cid, this);
-        return result;
+    public Map<String, Object> toMap() {
+        Map<String, Object> courseMap  = new HashMap<>();
+        courseMap.put("cid",this.cid);
+        return courseMap;
     }
     // [END post_to_map]
 
