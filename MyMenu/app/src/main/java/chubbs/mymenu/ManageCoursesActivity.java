@@ -1,13 +1,19 @@
 package chubbs.mymenu;
 
+import android.content.DialogInterface;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ManageCoursesActivity extends MainActivity {
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
@@ -26,5 +32,60 @@ public class ManageCoursesActivity extends MainActivity {
 
         ListView listView = findViewById(R.id.mobile_list);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                editCoursePopUp();
+            }
+        });
+    }
+
+    public void editCoursePopUp() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Edit Course");
+
+        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(getBaseContext(), "Save?", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                deleteCoursePopUp();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(getBaseContext(), "Cancel?", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void deleteCoursePopUp() {
+        AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(this);
+        deleteBuilder.setTitle("Confirm");
+        deleteBuilder.setMessage("Are you sure you want to remove this course?");
+
+        deleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(getBaseContext(), "As you wish master", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        deleteBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(getBaseContext(), "Well then...", Toast.LENGTH_LONG).show();
+                editCoursePopUp();
+            }
+        });
+
+        AlertDialog deleteDialog = deleteBuilder.create();
+        deleteDialog.show();
     }
 }
