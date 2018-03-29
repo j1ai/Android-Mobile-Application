@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ManageCoursesActivity extends MainActivity {
@@ -35,12 +36,14 @@ public class ManageCoursesActivity extends MainActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                editCoursePopUp();
+                TextView textView = (TextView) view.findViewById(R.id.mobile_list);
+                String text = textView.getText().toString();
+                editCoursePopUp(text);
             }
         });
     }
 
-    public void editCoursePopUp() {
+    public void editCoursePopUp(String course) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Course");
 
@@ -52,7 +55,7 @@ public class ManageCoursesActivity extends MainActivity {
 
         builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                deleteCoursePopUp();
+                deleteCoursePopUp(course);
             }
         });
 
@@ -66,10 +69,10 @@ public class ManageCoursesActivity extends MainActivity {
         dialog.show();
     }
 
-    public void deleteCoursePopUp() {
+    public void deleteCoursePopUp(String course) {
         AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(this);
         deleteBuilder.setTitle("Confirm");
-        deleteBuilder.setMessage("Are you sure you want to remove this course?");
+        deleteBuilder.setMessage("Are you sure you want to remove " + course + "?");
 
         deleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
