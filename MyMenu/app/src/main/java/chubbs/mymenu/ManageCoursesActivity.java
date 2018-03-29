@@ -80,6 +80,7 @@ public class ManageCoursesActivity extends MainActivity {
         deleteBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(getBaseContext(), "Well then...", Toast.LENGTH_LONG).show();
+                editCoursePopUp();
             }
         });
 
