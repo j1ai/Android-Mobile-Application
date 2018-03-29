@@ -43,7 +43,7 @@ public class ManageCoursesActivity extends MainActivity {
         });
     }
 
-    public void editCoursePopUp(String course) {
+    public void editCoursePopUp(final String course) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Course");
 
@@ -69,7 +69,7 @@ public class ManageCoursesActivity extends MainActivity {
         dialog.show();
     }
 
-    public void deleteCoursePopUp(String course) {
+    public void deleteCoursePopUp(final String course) {
         AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(this);
         deleteBuilder.setTitle("Confirm");
         deleteBuilder.setMessage("Are you sure you want to remove " + course + "?");
@@ -83,7 +83,7 @@ public class ManageCoursesActivity extends MainActivity {
         deleteBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(getBaseContext(), "Well then...", Toast.LENGTH_LONG).show();
-                editCoursePopUp();
+                editCoursePopUp(course);
             }
         });
 
