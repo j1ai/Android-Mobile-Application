@@ -36,14 +36,12 @@ public class ManageCoursesActivity extends MainActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView textView = (TextView) view.findViewById(R.id.mobile_list);
-                String text = textView.getText().toString();
-                editCoursePopUp(text);
+                editCoursePopUp();
             }
         });
     }
 
-    public void editCoursePopUp(final String course) {
+    public void editCoursePopUp() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Course");
 
@@ -55,7 +53,7 @@ public class ManageCoursesActivity extends MainActivity {
 
         builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                deleteCoursePopUp(course);
+                deleteCoursePopUp();
             }
         });
 
@@ -69,10 +67,10 @@ public class ManageCoursesActivity extends MainActivity {
         dialog.show();
     }
 
-    public void deleteCoursePopUp(final String course) {
+    public void deleteCoursePopUp() {
         AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(this);
         deleteBuilder.setTitle("Confirm");
-        deleteBuilder.setMessage("Are you sure you want to remove " + course + "?");
+        deleteBuilder.setMessage("Are you sure you want to remove this course?");
 
         deleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -83,7 +81,7 @@ public class ManageCoursesActivity extends MainActivity {
         deleteBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(getBaseContext(), "Well then...", Toast.LENGTH_LONG).show();
-                editCoursePopUp(course);
+                editCoursePopUp();
             }
         });
 
