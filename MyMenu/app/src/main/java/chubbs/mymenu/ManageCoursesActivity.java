@@ -35,7 +35,7 @@ public class ManageCoursesActivity extends MainActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                editCoursePopUp();
             }
         });
     }
@@ -52,7 +52,7 @@ public class ManageCoursesActivity extends MainActivity {
 
         builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getBaseContext(), "Delete?", Toast.LENGTH_LONG).show();
+                deleteCoursePopUp();
             }
         });
 
@@ -64,5 +64,26 @@ public class ManageCoursesActivity extends MainActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public void deleteCoursePopUp() {
+        AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(this);
+        deleteBuilder.setTitle("Confirm");
+        deleteBuilder.setMessage("Are you sure you want to remove this course?");
+
+        deleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(getBaseContext(), "As you wish master", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        deleteBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(getBaseContext(), "Well then...", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        AlertDialog deleteDialog = deleteBuilder.create();
+        deleteDialog.show();
     }
 }
