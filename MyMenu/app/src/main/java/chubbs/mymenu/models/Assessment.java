@@ -8,11 +8,13 @@ public class Assessment {
 
     public Assessment(){}
 
+    public String course;
     public String name;
     public int weight;
     public String deadline;
 
-    public Assessment(String name,int weight,String deadline) {
+    public Assessment(String course, String name,int weight,String deadline) {
+        this.course = course;
         this.name = name;
         this.weight = weight;
         this.deadline = deadline;

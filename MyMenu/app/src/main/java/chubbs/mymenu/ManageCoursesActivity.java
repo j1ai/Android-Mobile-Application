@@ -15,12 +15,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import chubbs.mymenu.DataAccess.ManageData;
+import chubbs.mymenu.models.Course;
+
 public class ManageCoursesActivity extends MainActivity {
+    List<Course> courses = new ArrayList<Course>();
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
             "WebOS","Ubuntu","Windows7","Max OS X"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ManageData dataBase = new ManageData();
+        courses = dataBase.getAllCourses();
         setContentView(R.layout.activity_manage_courses);
 
         //since we're inheriting main activity. just call the super method to create our toolbar
