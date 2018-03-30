@@ -3,6 +3,7 @@ package chubbs.mymenu;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -101,10 +102,11 @@ public class WeightedJob {
         // Convert assessments with dates in string format to start and end times in integer format.
 
         int day, month, year, start, finish;
+        int todayNum = 0;
 
         Job result[] = new Job[assessments.length];
 
-        for (int i = 0; i < assessments.length; i ++){
+        for (int i = 0; i < assessments.length; i++){
 
             day = Integer.parseInt(assessments[i].deadline.substring(0,2));
             month = Integer.parseInt(assessments[i].deadline.substring(3,5));
@@ -118,7 +120,7 @@ public class WeightedJob {
             // As default, use half the time till the deadline as the start time
             Date today = new Date();
             myCalendar.setTime(today);
-            int todayNum = myCalendar.get(Calendar.DAY_OF_YEAR);
+            todayNum = myCalendar.get(Calendar.DAY_OF_YEAR);
 
             start = (int) (todayNum + Math.ceil((double)(finish - todayNum)/2));
             //System.out.println(start);
@@ -129,6 +131,29 @@ public class WeightedJob {
             result[i] = j;
         }
 
+        int min_start = Integer.MAX_VALUE;
+        int time_left = Integer.MIN_VALUE;
+
+        // check for extra time space
+        for (int i = 0; i < result.length; i++){
+            Arrays.sort(result, new JobComparator());
+            if (result[i].getStartTime() < min_start){
+                min_start = result[i].getStartTime();
+                time_left = min_start - todayNum;
+            }
+        }
+
+        // re-assign jobs into open space to resolve conflicts
+        for (int i = 0; i < result.length; i++){
+            Arrays.sort(result, Collections.reverseOrder(new JobComparator()));
+            int job_length = result[i].getFinishTime() - result[i].getStartTime();
+            if (job_length <= time_left){
+                result[i].setFinishTime(min_start);
+                result[i].setStartTime(min_start - job_length);
+                min_start = result[i].getStartTime();
+                time_left = todayNum - min_start;
+            }
+        }
 
         return result;
     }
@@ -139,7 +164,7 @@ public class WeightedJob {
         Job jobs[] = {new Job("Job1", 1, 2, 50), new Job("Job2", 3, 5, 20),
                 new Job("Job3",6, 19, 100), new Job("Job4",2, 100, 200)};
 
-        System.out.println("Optimal profit is " );
+        System.out.println("Optimal profit is: " );
         ArrayList<Job> optimal = schedule(jobs);
         for (int i = 0; i < optimal.size(); i++) {
             System.out.println(optimal.get(i).getName());
@@ -150,7 +175,7 @@ public class WeightedJob {
                 new Job("Job5",4, 7, 3), new Job("Job6",5, 9, 7),
                 new Job("Job7",6, 10, 3), new Job("Job8",8, 11, 4)};
 
-        System.out.println("Optimal profit is " );
+        System.out.println("Optimal profit is: " );
         ArrayList<Job> optimal2 = schedule(jobs2);
         for (int i = 0; i < optimal2.size(); i++) {
             System.out.println(optimal2.get(i).getName());
@@ -161,7 +186,7 @@ public class WeightedJob {
 
         Job jobs3[] = {new Job("Job1", 1, 2, 50), new Job("Job2", 1, 2, 20),
                 new Job("Job3",3, 6, 30), new Job("Job4",0, 1, 20)};
-        System.out.println("Optimal profit is " );
+        System.out.println("Optimal profit is: " );
         ArrayList<Job> optimal3 = schedule(jobs3);
         for (int i = 0; i < optimal3.size(); i++) {
             System.out.println(optimal3.get(i).getName());
@@ -169,13 +194,13 @@ public class WeightedJob {
 
 
         Assessment assessments[] = {new Assessment("CSC301", "Job1", 50, "02/03/2018" ),
-                new Assessment("CSC301", "Job 2", 20, "02/03/2018"),
-                new Assessment("CSC301", "Job 3", 100, "06/03/2018"),
-                new Assessment("CSC301", "Job 4", 20, "01/03/2018")
+                new Assessment("CSC301", "Job2", 20, "02/03/2018"),
+                new Assessment("CSC301", "Job3", 100, "06/03/2018"),
+                new Assessment("CSC301", "Job4", 20, "30/02/2018")
         };
         Job jobs4[] = convert(assessments);
 
-        System.out.println("Optimal profit is " );
+        System.out.println("Optimal profit is: " );
         ArrayList<Job> optimal4 = schedule(jobs4);
         for (int i = 0; i < optimal4.size(); i++) {
             System.out.println(optimal4.get(i).getName());
