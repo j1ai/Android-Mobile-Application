@@ -2,7 +2,11 @@ package chubbs.mymenu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
+import chubbs.mymenu.models.Assessment;
 import chubbs.mymenu.models.Job;
 
 public class WeightedJob {
@@ -93,6 +97,42 @@ public class WeightedJob {
         return optimalJobs;
     }
 
+    public static Job[] convert(Assessment assessments[]){
+        // Convert assessments with dates in string format to start and end times in integer format.
+
+        int day, month, year, start, finish;
+
+        Job result[] = new Job[assessments.length];
+
+        for (int i = 0; i < assessments.length; i ++){
+
+            day = Integer.parseInt(assessments[i].deadline.substring(0,2));
+            month = Integer.parseInt(assessments[i].deadline.substring(3,5));
+            year = Integer.parseInt(assessments[i].deadline.substring(6,10));
+
+            Calendar myCalendar = new GregorianCalendar(year, month, day);
+            Date myDate = myCalendar.getTime();
+            myCalendar.setTime(myDate);
+            finish = myCalendar.get(Calendar.DAY_OF_YEAR);
+
+            // As default, use half the time till the deadline as the start time
+            Date today = new Date();
+            myCalendar.setTime(today);
+            int todayNum = myCalendar.get(Calendar.DAY_OF_YEAR);
+
+            start = (int) (todayNum + Math.ceil((double)(finish - todayNum)/2));
+            //System.out.println(start);
+            //System.out.println(finish);
+
+
+            Job j = new Job(assessments[i].name, start, finish, assessments[i].weight);
+            result[i] = j;
+        }
+
+
+        return result;
+    }
+
     // Driver method to test above
     public static void main(String[] args)
     {
@@ -114,6 +154,31 @@ public class WeightedJob {
         ArrayList<Job> optimal2 = schedule(jobs2);
         for (int i = 0; i < optimal2.size(); i++) {
             System.out.println(optimal2.get(i).getName());
+        }
+
+
+
+
+        Job jobs3[] = {new Job("Job1", 1, 2, 50), new Job("Job2", 1, 2, 20),
+                new Job("Job3",3, 6, 30), new Job("Job4",0, 1, 20)};
+        System.out.println("Optimal profit is " );
+        ArrayList<Job> optimal3 = schedule(jobs3);
+        for (int i = 0; i < optimal3.size(); i++) {
+            System.out.println(optimal3.get(i).getName());
+        }
+
+
+        Assessment assessments[] = {new Assessment("CSC301", "Job1", 50, "02/03/2018" ),
+                new Assessment("CSC301", "Job 2", 20, "02/03/2018"),
+                new Assessment("CSC301", "Job 3", 100, "06/03/2018"),
+                new Assessment("CSC301", "Job 4", 20, "01/03/2018")
+        };
+        Job jobs4[] = convert(assessments);
+
+        System.out.println("Optimal profit is " );
+        ArrayList<Job> optimal4 = schedule(jobs4);
+        for (int i = 0; i < optimal4.size(); i++) {
+            System.out.println(optimal4.get(i).getName());
         }
     }
 
