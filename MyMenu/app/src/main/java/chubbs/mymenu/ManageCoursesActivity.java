@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,14 +23,23 @@ import chubbs.mymenu.DataAccess.ManageData;
 import chubbs.mymenu.models.Course;
 
 public class ManageCoursesActivity extends MainActivity {
-    List<Course> courses = new ArrayList<Course>();
+    List<Course> courseids = new ArrayList<Course>();
+    List<String> courses = new ArrayList<String>();
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
             "WebOS","Ubuntu","Windows7","Max OS X"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ManageData dataBase = new ManageData();
-        courses = dataBase.getAllCourses();
+        //ManageData dataBase = new ManageData();
+        courseids = ManageData.getAllCourses();
+        courseids = ManageData.getAll_course();
+        if (courseids.isEmpty()) {
+            Log.d("NullTest", "Courses is null :(");
+        }
+
+        for (Course course : courseids) {
+            courses.add(course.getCid());
+        }
         setContentView(R.layout.activity_manage_courses);
 
         //since we're inheriting main activity. just call the super method to create our toolbar
@@ -37,7 +47,7 @@ public class ManageCoursesActivity extends MainActivity {
 
         ArrayAdapter adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
-                mobileArray);
+                courses);
 
         ListView listView = findViewById(R.id.mobile_list);
         listView.setAdapter(adapter);
