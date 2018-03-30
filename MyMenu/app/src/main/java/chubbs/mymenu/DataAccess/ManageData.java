@@ -104,6 +104,15 @@ public class ManageData extends BaseActivity{
                         path,FieldValue.delete()
                 );
         // [END update_delete_field]
+        deleteAssessmentFromList(course_name,assess_name);
+    }
+
+    public void deleteAssessmentFromList(String course_name,String assess_name){
+        for (Assessment assessment: all_assessment){
+            if (assessment.course.equals(course_name) && assessment.name.equals(assess_name)){
+                all_assessment.remove(assessment);
+            }
+        }
     }
 
     public void updateCourse(Course upCourse) {
