@@ -33,15 +33,13 @@ import chubbs.mymenu.models.User;
 public class ManageData extends BaseActivity{
 
     private static FirebaseFirestore mFirestore;
-    private BaseActivity activity;
     private static String uid;
     private static final String TAG = "ManageData";
     private static List<Course> all_course;
     private List<Assessment> all_assessment;
 
-    public ManageData(BaseActivity activity){
+    public ManageData(){
         all_course = new ArrayList<>();
-        this.activity = activity;
         // Enable Firestore logging
         FirebaseFirestore.setLoggingEnabled(true);
         // Firestore
@@ -182,7 +180,6 @@ public class ManageData extends BaseActivity{
                     String cid = values.get("cid").toString();
                     Course newCourse = new Course(cid);
                     all_course.add(newCourse);
-                    Log.d(TAG, "DocumentSnapshot " + all_course.toString());
                 }
             }
         });
