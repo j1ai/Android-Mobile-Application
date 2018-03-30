@@ -109,7 +109,7 @@ public class WeightedJob {
         for (int i = 0; i < assessments.length; i++){
 
             day = Integer.parseInt(assessments[i].deadline.substring(0,2));
-            month = Integer.parseInt(assessments[i].deadline.substring(3,5));
+            month = Integer.parseInt(assessments[i].deadline.substring(3,5)) - 1;
             year = Integer.parseInt(assessments[i].deadline.substring(6,10));
 
             Calendar myCalendar = new GregorianCalendar(year, month, day);
@@ -193,17 +193,30 @@ public class WeightedJob {
         }
 
 
-        Assessment assessments[] = {new Assessment("CSC301", "Job1", 50, "02/03/2018" ),
-                new Assessment("CSC301", "Job2", 20, "02/03/2018"),
-                new Assessment("CSC301", "Job3", 100, "06/03/2018"),
-                new Assessment("CSC301", "Job4", 20, "30/02/2018")
-        };
+        Assessment assessments[] = {new Assessment("CSC301", "Job1", 50, "02/04/2018" ),
+            new Assessment("CSC301", "Job2", 20, "02/04/2018"),
+            new Assessment("CSC301", "Job3", 100, "06/04/2018"),
+            new Assessment("CSC301", "Job4", 20, "30/03/2018")
+    };
         Job jobs4[] = convert(assessments);
 
         System.out.println("Optimal profit is: " );
         ArrayList<Job> optimal4 = schedule(jobs4);
         for (int i = 0; i < optimal4.size(); i++) {
             System.out.println(optimal4.get(i).getName());
+        }
+
+        Assessment assessments2[] = {new Assessment("CSC301", "Deliverable 3", 10, "01/04/2018" ),
+                new Assessment("CSC373", "CSC373 A3", 5, "03/04/2018"),
+                new Assessment("CSC369", "CSC369 A4", 10, "06/04/2018"),
+                new Assessment("CSC373", "CSC373 EXAM!", 20, "11/04/2018")
+        };
+        Job jobs5[] = convert(assessments2);
+
+        System.out.println("Optimal profit is: " );
+        ArrayList<Job> optimal5 = schedule(jobs5);
+        for (int i = 0; i < optimal5.size(); i++) {
+            System.out.println(optimal5.get(i).getName());
         }
     }
 
