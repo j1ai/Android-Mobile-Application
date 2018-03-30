@@ -34,11 +34,11 @@ public class CourseActivity extends BaseActivity {
     private FloatingActionButton addCourse;
     private EditText input;
     private static final String TAG = "CourseActivity";
-    private ManageData db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new ManageData();
         setContentView(R.layout.activity_course);
 
         adapter=new ArrayAdapter<>(getApplicationContext(),
@@ -49,7 +49,6 @@ public class CourseActivity extends BaseActivity {
         courselist.setAdapter(adapter);
         input =  findViewById(R.id.courseinput);
 
-        db = new ManageData(this);
         db.addDocument("COURSES");
 
         addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);

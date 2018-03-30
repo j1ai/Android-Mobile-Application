@@ -4,6 +4,7 @@ package chubbs.mymenu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -21,19 +22,17 @@ import java.util.List;
 
 public class UpdateSyllabusActivity extends BaseActivity {
 
-
     private ArrayAdapter<String> adapter;
     ArrayList<String> listItems=new ArrayList<>();
+    private static final String TAG = "SyllabusActivity";
 
     EditText item1, weight1;
     DatePicker datePicker;
     int day, month, year;
-    private ManageData db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db = new ManageData(this);
         db.addDocument("ASSESSMENTS");
         db.addDocument("COURSES");
 

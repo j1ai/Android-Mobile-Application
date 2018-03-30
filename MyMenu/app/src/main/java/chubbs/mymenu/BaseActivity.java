@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import chubbs.mymenu.DataAccess.ManageData;
+
 
 public class BaseActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
+    public static ManageData db;
 
     public void showProgressDialog() {
         if (mProgressDialog == null) {
