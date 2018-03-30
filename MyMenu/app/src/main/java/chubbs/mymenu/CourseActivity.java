@@ -67,12 +67,12 @@ public class CourseActivity extends BaseActivity {
     }
 
     private void submitCourse() {
-        db.getAllCourses();
         final String cid = input.getText().toString();
         Course newCourse = new Course(cid);
         listItems.add(cid);
         adapter.notifyDataSetChanged();
         db.addCourse(newCourse);
+        db.getAllCourses();
     }
 
 

@@ -78,22 +78,16 @@ public class ManageData extends BaseActivity{
                 .set(data, SetOptions.merge());
     }
 
-    // Delete a data instance of a Course Object
+    // Delete all related Course documents
+    // (i.e including all assessments related to this course)
     public void deleteCourseField(String name) {
-        // [START update_delete_field]
-        DocumentReference docRef = mFirestore.collection(uid).document("COURSES");
-
-        // Remove the 'capital' field from the document
-        Map<String,Object> updates = new HashMap<>();
-        updates.put(name, FieldValue.delete());
-
-        docRef.update(updates).addOnCompleteListener(new OnCompleteListener<Void>() {
-            // [START_EXCLUDE]
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {}
-            // [START_EXCLUDE]
-        });
-        // [END update_delete_field]
+        mFirestore.collection(uid).document("COURSES")
+                .update(
+                    name,FieldValue.delete());
+        mFirestore.collection(uid).document("ASSESSMENTS")
+                .update(
+                        name,FieldValue.delete());
+        getAllAssessments();
     }
 
     public void deleteAssessmentField(String course_name,String assess_name) {
