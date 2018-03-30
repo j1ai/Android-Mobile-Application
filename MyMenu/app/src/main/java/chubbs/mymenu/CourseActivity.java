@@ -29,16 +29,16 @@ public class CourseActivity extends BaseActivity {
 
     private ArrayAdapter<String> adapter;
     ArrayList<String> listItems=new ArrayList<>();
-
+    private List<Course> all_course = new ArrayList<>();
     private ListView courselist;
     private FloatingActionButton addCourse;
     private EditText input;
     private static final String TAG = "CourseActivity";
-    private ManageData db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new ManageData();
         setContentView(R.layout.activity_course);
 
         adapter=new ArrayAdapter<>(getApplicationContext(),
@@ -49,7 +49,6 @@ public class CourseActivity extends BaseActivity {
         courselist.setAdapter(adapter);
         input =  findViewById(R.id.courseinput);
 
-        db = new ManageData(this);
         db.addDocument("COURSES");
 
         addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
@@ -59,22 +58,22 @@ public class CourseActivity extends BaseActivity {
                 submitCourse();
             }
         });
-
         Button nextStep = (Button) findViewById(R.id.nextButton);
         nextStep.setOnClickListener(new OnClickListener(){
             public void onClick(View view){
+                all_course = db.getAllCourses();
                 startActivity(new Intent(CourseActivity.this, UpdateSyllabusActivity.class));
             }
         });
     }
 
     private void submitCourse() {
+        all_course = db.getAllCourses();
         final String cid = input.getText().toString();
         Course newCourse = new Course(cid);
         listItems.add(cid);
         adapter.notifyDataSetChanged();
         db.addCourse(newCourse);
-        db.getAllCourses();
     }
 
 

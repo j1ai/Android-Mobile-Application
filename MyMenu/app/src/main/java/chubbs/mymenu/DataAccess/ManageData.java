@@ -32,15 +32,14 @@ import chubbs.mymenu.models.User;
 
 public class ManageData extends BaseActivity{
 
-    private FirebaseFirestore mFirestore;
-    private BaseActivity activity;
-    private String uid;
+    private static FirebaseFirestore mFirestore;
+    private static String uid;
     private static final String TAG = "ManageData";
-    private List<Course> all_course;
+    private static List<Course> all_course;
     private List<Assessment> all_assessment;
 
-    public ManageData(BaseActivity activity){
-        this.activity = activity;
+    public ManageData(){
+        all_course = new ArrayList<>();
         // Enable Firestore logging
         FirebaseFirestore.setLoggingEnabled(true);
         // Firestore
@@ -168,9 +167,8 @@ public class ManageData extends BaseActivity{
 
     // Return an ArrayList of Custom Objects in a specified documents
     // Return all Course Objects in "COURSES"
-    public void getAllCourses() {
+    public static List<Course> getAllCourses() {
         // [START get_multiple_all]
-        all_course = new ArrayList<>();
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(uid).document("COURSES");
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -185,10 +183,11 @@ public class ManageData extends BaseActivity{
                 }
             }
         });
+        return all_course;
     }
 
-    public List<Course> getAll_course(){
-        return this.all_course;
+    public static List<Course> getAll_course(){
+        return all_course;
     }
 
     // Return an ArrayList of Custom Objects in a specified documents
