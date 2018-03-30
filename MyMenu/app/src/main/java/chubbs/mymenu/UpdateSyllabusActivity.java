@@ -37,10 +37,9 @@ public class UpdateSyllabusActivity extends BaseActivity {
         db.addDocument("ASSESSMENTS");
         db.addDocument("COURSES");
         all = new ArrayList<>();
-
         setContentView(R.layout.update_syllabus);
-        db.getAllCourses();
         List<Course> courses = db.getAll_course();
+        Log.d(TAG, "All Course" + courses.toString());
         String[] items = new String[courses.size()];
         int i =0;
         for (Course x : courses){
