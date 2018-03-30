@@ -78,8 +78,8 @@ public class ManageData extends BaseActivity{
                 .set(data, SetOptions.merge());
     }
 
-    // Delete a data instance of a Course/ Assessment Object
-    public void DeleteCourseField(String name) {
+    // Delete a data instance of a Course Object
+    public void deleteCourseField(String name) {
         // [START update_delete_field]
         DocumentReference docRef = mFirestore.collection(uid).document("COURSES");
 
@@ -96,21 +96,23 @@ public class ManageData extends BaseActivity{
         // [END update_delete_field]
     }
 
-    public void DeleteAssessmentField(String course_name,String name) {
+    public void deleteAssessmentField(String course_name,String assess_name) {
         // [START update_delete_field]
-        DocumentReference docRef = mFirestore.collection(uid).document("COURSES");
-
-        // Remove the 'capital' field from the document
-        Map<String,Object> updates = new HashMap<>();
-        updates.put(name, FieldValue.delete());
-
-        docRef.update(updates).addOnCompleteListener(new OnCompleteListener<Void>() {
-            // [START_EXCLUDE]
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {}
-            // [START_EXCLUDE]
-        });
+        String path = course_name + "." + assess_name;
+        mFirestore.collection(uid).document("ASSESSMENTS")
+                .update(
+                        path,FieldValue.delete()
+                );
         // [END update_delete_field]
+        deleteAssessmentFromList(course_name,assess_name);
+    }
+
+    public void deleteAssessmentFromList(String course_name,String assess_name){
+        for (Assessment assessment: all_assessment){
+            if (assessment.course.equals(course_name) && assessment.name.equals(assess_name)){
+                all_assessment.remove(assessment);
+            }
+        }
     }
 
     public void updateCourse(Course upCourse) {
@@ -163,6 +165,15 @@ public class ManageData extends BaseActivity{
         return true;
     }
 
+    public static boolean checkContainsAssessment(String assessname){
+        for (Assessment assessment: all_assessment){
+            if (assessment.name.equals(assessname)){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     // Return an ArrayList of Custom Objects in a specified documents
     // Return all Course Objects in "COURSES"
@@ -205,13 +216,15 @@ public class ManageData extends BaseActivity{
                     Map<String, Object> values = (Map<String, Object>) form.getValue();
                     for (Map.Entry<String, Object> entry : values.entrySet()) {
                         String assessment_name = entry.getKey();
-                        Map<String, Object> assessment_list = (Map<String, Object>) entry.getValue();
-                        String asses_name = assessment_list.get("name").toString();
-                        String weight = assessment_list.get("weight").toString();
-                        int w = Integer.parseInt(weight);
-                        String deadline = assessment_list.get("deadline").toString();
-                        Assessment assessment = new Assessment(course_name, asses_name, w, deadline);
-                        all_assessment.add(assessment);
+                        if (checkContainsAssessment(assessment_name)){
+                            Map<String, Object> assessment_list = (Map<String, Object>) entry.getValue();
+                            String asses_name = assessment_list.get("name").toString();
+                            String weight = assessment_list.get("weight").toString();
+                            int w = Integer.parseInt(weight);
+                            String deadline = assessment_list.get("deadline").toString();
+                            Assessment assessment = new Assessment(course_name, asses_name, w, deadline);
+                            all_assessment.add(assessment);
+                        }
                     }
                 }
             }

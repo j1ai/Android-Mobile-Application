@@ -128,9 +128,7 @@ public class UpdateSyllabusActivity extends BaseActivity {
 
                     Assessment newAssessment = new Assessment(course,name,weightvalue,date);
                     db.addAssessment(newAssessment);
-
                     adapter.notifyDataSetChanged();
-
                     item1.getText().clear();
                     weight1.getText().clear();
                 }
@@ -141,8 +139,6 @@ public class UpdateSyllabusActivity extends BaseActivity {
         Button rmElement = findViewById(R.id.rmElement);
         rmElement.setOnClickListener(new OnClickListener(){
             public void onClick(View view){
-                all = db.getAll_assessment();
-                Log.d(TAG, "get Assessment" + all.toString());
 
                 item1 =  findViewById(R.id.assessment1);
                 weight1 = findViewById(R.id.weight1);
@@ -156,6 +152,9 @@ public class UpdateSyllabusActivity extends BaseActivity {
                 String weight = weight1.getText().toString();
                 int weightvalue = Integer.parseInt(weight);
                 String date = day + "/" + month + "/" + year;
+                String course = dropdown.getSelectedItem().toString();
+
+                db.deleteAssessmentField(course,name);
 
                 listItems.remove( name + "                 "
                         + weight +
