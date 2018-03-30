@@ -130,6 +130,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.016" />
 
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="147dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker"
+        tools:layout_editor_absoluteX="69dp" />
     <ListView
         android:id="@+id/list1"
         android:layout_width="321dp"
@@ -144,7 +153,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.93" />
-
     <DatePicker
         android:id="@+id/datePicker"
         android:layout_width="228dp"
