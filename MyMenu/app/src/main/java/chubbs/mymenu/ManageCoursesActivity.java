@@ -31,8 +31,8 @@ public class ManageCoursesActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //ManageData dataBase = new ManageData();
-        courseids = ManageData.getAllCourses();
-        courseids = ManageData.getAll_course();
+        courseids = db.getAllCourses();
+        courseids = db.getAll_course();
         if (courseids.isEmpty()) {
             Log.d("NullTest", "Courses is null :(");
         }
