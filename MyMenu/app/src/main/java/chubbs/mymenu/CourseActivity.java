@@ -61,14 +61,13 @@ public class CourseActivity extends BaseActivity {
         Button nextStep = (Button) findViewById(R.id.nextButton);
         nextStep.setOnClickListener(new OnClickListener(){
             public void onClick(View view){
-                all_course = db.getAllCourses();
                 startActivity(new Intent(CourseActivity.this, UpdateSyllabusActivity.class));
             }
         });
     }
 
     private void submitCourse() {
-        all_course = db.getAllCourses();
+        db.getAllCourses();
         final String cid = input.getText().toString();
         Course newCourse = new Course(cid);
         listItems.add(cid);

@@ -154,10 +154,19 @@ public class ManageData extends BaseActivity{
         return null;
     }
 
+    public static boolean checkContainsCourse(String courseid){
+        for (Course course: all_course){
+            if (course.cid.equals(courseid)){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     // Return an ArrayList of Custom Objects in a specified documents
     // Return all Course Objects in "COURSES"
-    public static List<Course> getAllCourses() {
+    public static void getAllCourses() {
         // [START get_multiple_all]
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(uid).document("COURSES");
@@ -168,12 +177,13 @@ public class ManageData extends BaseActivity{
                 for (Map.Entry<String, Object> form: forms.entrySet()) {
                     Map<String, Object> values = (Map<String, Object>)form.getValue();
                     String cid = values.get("cid").toString();
-                    Course newCourse = new Course(cid);
-                    all_course.add(newCourse);
+                    if (checkContainsCourse(cid)){
+                        Course newCourse = new Course(cid);
+                        all_course.add(newCourse);
+                    }
                 }
             }
         });
-        return all_course;
     }
 
     public static List<Course> getAll_course(){
