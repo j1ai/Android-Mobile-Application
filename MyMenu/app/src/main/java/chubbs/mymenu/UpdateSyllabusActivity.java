@@ -25,6 +25,7 @@ public class UpdateSyllabusActivity extends BaseActivity {
     private ArrayAdapter<String> adapter;
     ArrayList<String> listItems=new ArrayList<>();
     private static final String TAG = "SyllabusActivity";
+    private List<Assessment> all;
 
     EditText item1, weight1;
     DatePicker datePicker;
@@ -35,6 +36,7 @@ public class UpdateSyllabusActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         db.addDocument("ASSESSMENTS");
         db.addDocument("COURSES");
+        all = new ArrayList<>();
 
         setContentView(R.layout.update_syllabus);
         db.getAllCourses();
@@ -47,7 +49,7 @@ public class UpdateSyllabusActivity extends BaseActivity {
 
         }
 //get the spinner from the xml.
-        Spinner dropdown = findViewById(R.id.spinner1);
+        final Spinner dropdown = findViewById(R.id.spinner1);
 //create a list of items for the spinner.
 
 //create an adapter to describe how the items are displayed, adapters are used in several places in android.
@@ -73,7 +75,7 @@ public class UpdateSyllabusActivity extends BaseActivity {
         Button addElement = findViewById(R.id.addElement);
         addElement.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-
+                db.getAllAssessments();
                 item1 =  findViewById(R.id.assessment1);
                 weight1 = findViewById(R.id.weight1);
 
@@ -118,14 +120,16 @@ public class UpdateSyllabusActivity extends BaseActivity {
                     String w = weight1.getText().toString();
                     int weightvalue = Integer.parseInt(w);
                     String date = day + "/" + month + "/" + year;
+                    String course = dropdown.getSelectedItem().toString();
 
-                    listItems.add( name + "                 "
+                    listItems.add(course +"     "+ name + "     "
                             + w +
-                            "%                    " +
+                            "%     " +
                             date);
 
-                    Assessment newAssessment = new Assessment(name,weightvalue,date);
+                    Assessment newAssessment = new Assessment(course,name,weightvalue,date);
                     db.addAssessment(newAssessment);
+
                     adapter.notifyDataSetChanged();
 
                     item1.getText().clear();
@@ -138,8 +142,8 @@ public class UpdateSyllabusActivity extends BaseActivity {
         Button rmElement = findViewById(R.id.rmElement);
         rmElement.setOnClickListener(new OnClickListener(){
             public void onClick(View view){
-
-
+                all = db.getAll_assessment();
+                Log.d(TAG, "get Assessment" + all.toString());
 
                 item1 =  findViewById(R.id.assessment1);
                 weight1 = findViewById(R.id.weight1);
