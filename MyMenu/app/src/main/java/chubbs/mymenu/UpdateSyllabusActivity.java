@@ -70,11 +70,11 @@ public class UpdateSyllabusActivity extends BaseActivity {
         list = findViewById(R.id.list1);
         list.setAdapter(adapter);
 
-
+        db.getAllAssessments();
         Button addElement = findViewById(R.id.addElement);
         addElement.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                db.getAllAssessments();
+
                 item1 =  findViewById(R.id.assessment1);
                 weight1 = findViewById(R.id.weight1);
 
@@ -132,14 +132,14 @@ public class UpdateSyllabusActivity extends BaseActivity {
                     item1.getText().clear();
                     weight1.getText().clear();
                 }
-
+                db.getAllAssessments();
 
             }
         });
         Button rmElement = findViewById(R.id.rmElement);
         rmElement.setOnClickListener(new OnClickListener(){
             public void onClick(View view){
-
+                db.getAllAssessments();
                 item1 =  findViewById(R.id.assessment1);
                 weight1 = findViewById(R.id.weight1);
 
