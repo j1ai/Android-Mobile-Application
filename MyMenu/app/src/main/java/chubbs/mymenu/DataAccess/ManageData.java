@@ -36,10 +36,11 @@ public class ManageData extends BaseActivity{
     private static String uid;
     private static final String TAG = "ManageData";
     private static List<Course> all_course;
-    private List<Assessment> all_assessment;
+    private static List<Assessment> all_assessment;
 
     public ManageData(){
         all_course = new ArrayList<>();
+        all_assessment = new ArrayList<>();
         // Enable Firestore logging
         FirebaseFirestore.setLoggingEnabled(true);
         // Firestore
@@ -69,16 +70,35 @@ public class ManageData extends BaseActivity{
     }
 
     public void addAssessment(Assessment newAssessment){
-        Map<String, Map<String, Object>> data = new HashMap<>();
-        data.put(newAssessment.name,newAssessment.toMap());
+        Map<String, Map<String,Map<String, Object>>> data = new HashMap<>();
+        Map<String, Map<String, Object>> assementData = new HashMap<>();
+        assementData.put(newAssessment.name,newAssessment.toMap());
+        data.put(newAssessment.course,assementData);
         mFirestore.collection(uid).document("ASSESSMENTS")
                 .set(data, SetOptions.merge());
     }
 
     // Delete a data instance of a Course/ Assessment Object
-    public void DeleteField(String doc, String name) {
+    public void DeleteCourseField(String name) {
         // [START update_delete_field]
-        DocumentReference docRef = mFirestore.collection(uid).document(doc);
+        DocumentReference docRef = mFirestore.collection(uid).document("COURSES");
+
+        // Remove the 'capital' field from the document
+        Map<String,Object> updates = new HashMap<>();
+        updates.put(name, FieldValue.delete());
+
+        docRef.update(updates).addOnCompleteListener(new OnCompleteListener<Void>() {
+            // [START_EXCLUDE]
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {}
+            // [START_EXCLUDE]
+        });
+        // [END update_delete_field]
+    }
+
+    public void DeleteAssessmentField(String course_name,String name) {
+        // [START update_delete_field]
+        DocumentReference docRef = mFirestore.collection(uid).document("COURSES");
 
         // Remove the 'capital' field from the document
         Map<String,Object> updates = new HashMap<>();
@@ -116,52 +136,22 @@ public class ManageData extends BaseActivity{
     // Return the Specified Objects
     // For example, return CSC301 course in document ("COURSES")
     public Course getCourse(final String name) {
-        // [START get_document]
-        final List<Course> courseContainer = new ArrayList<>();
-        DocumentReference docRef = mFirestore.collection(uid).document("COURSES");
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Map<String, Object> forms = documentSnapshot.getData();
-                for (Map.Entry<String, Object> form: forms.entrySet()) {
-                    String key = form.getKey();
-                    if (key.equals(name)){
-                        Map<String, Object> values = (Map<String, Object>)form.getValue();
-                        String cid = values.get("cid").toString();
-                        Course newCourse = new Course(cid);
-                        courseContainer.add(newCourse);
-                    }
-                }
+        for (Course course: all_course){
+            if (course.cid.equals(name)){
+                return course;
             }
-        });
-        // [END get_document]
-        return courseContainer.get(0);
+        }
+        return null;
     }
 
-    public Assessment getAssessment(final String name) {
+    public Assessment getAssessment(final String course_name,final String asses_name) {
         // [START get_document]
-        final List<Assessment> assessmentContainer = new ArrayList<>();
-        DocumentReference docRef = mFirestore.collection(uid).document("ASSESSMENTS");
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Map<String, Object> forms = documentSnapshot.getData();
-                for (Map.Entry<String, Object> form: forms.entrySet()) {
-                    String key = form.getKey();
-                    if (key.equals(name)){
-                        Map<String, Object> values = (Map<String, Object>)form.getValue();
-                        String name = values.get("name").toString();
-                        String weight = values.get("weight").toString();
-                        int w = Integer.parseInt(weight);
-                        String deadline = values.get("deadline").toString();
-                        Assessment assessment = new Assessment(name,w,deadline);
-                        assessmentContainer.add(assessment);
-                    }
-                }
+        for (Assessment assessment: all_assessment){
+            if (assessment.course.equals(course_name) && assessment.name.equals(asses_name)){
+                return assessment;
             }
-        });
-        // [END get_document]
-        return assessmentContainer.get(0);
+        }
+        return null;
     }
 
 
@@ -192,30 +182,36 @@ public class ManageData extends BaseActivity{
 
     // Return an ArrayList of Custom Objects in a specified documents
     // Return all Course Objects in "ASSESSMENT"
-    public void getAllAssessments() {
+    public static void getAllAssessments() {
         // [START get_multiple_all]
-        all_assessment = new ArrayList<>();
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(uid).document("ASSESSMENTS");
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Map<String, Object> forms = documentSnapshot.getData();
-                for (Map.Entry<String, Object> form: forms.entrySet()) {
-                    Map<String, Object> values = (Map<String, Object>)form.getValue();
-                    String name = values.get("name").toString();
-                    String weight = values.get("weight").toString();
-                    int w = Integer.parseInt(weight);
-                    String deadline = values.get("deadline").toString();
-                    Assessment assessment = new Assessment(name,w,deadline);
-                    all_assessment.add(assessment);
+                for (Map.Entry<String, Object> form : forms.entrySet()) {
+                    String course_name = form.getKey();
+                    Map<String, Object> values = (Map<String, Object>) form.getValue();
+                    for (Map.Entry<String, Object> entry : values.entrySet()) {
+                        String assessment_name = entry.getKey();
+                        Map<String, Object> assessment_list = (Map<String, Object>) entry.getValue();
+                        String asses_name = assessment_list.get("name").toString();
+                        String weight = assessment_list.get("weight").toString();
+                        int w = Integer.parseInt(weight);
+                        String deadline = assessment_list.get("deadline").toString();
+                        Assessment assessment = new Assessment(course_name, asses_name, w, deadline);
+                        all_assessment.add(assessment);
+                    }
                 }
             }
         });
     }
 
-    public List<Assessment> getAll_assessment(){
-        return this.all_assessment;
+
+
+    public static List<Assessment> getAll_assessment(){
+        return all_assessment;
     }
 
 
