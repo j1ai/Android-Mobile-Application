@@ -4,7 +4,6 @@ package chubbs.mymenu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -12,13 +11,12 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
-
+import android.widget.Spinner;
 import java.util.ArrayList;
-import java.util.List;
-
+import chubbs.mymenu.models.Course;
 import chubbs.mymenu.DataAccess.ManageData;
 import chubbs.mymenu.models.Assessment;
-import chubbs.mymenu.models.Course;
+import java.util.List;
 
 
 public class UpdateSyllabusActivity extends BaseActivity {
@@ -31,21 +29,39 @@ public class UpdateSyllabusActivity extends BaseActivity {
     DatePicker datePicker;
     int day, month, year;
     private ManageData db;
-    private List<Course> all_course;
-    private static final String TAG = "CourseActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ListView list;
-        all_course = new ArrayList<>();
-        //Set Up managing data
+        super.onCreate(savedInstanceState);
         db = new ManageData(this);
         db.addDocument("ASSESSMENTS");
-        all_course = db.getAllCourses();
-        Log.d(TAG, "DocumentSnapshotttttttttt " + all_course.toString());
+        db.addDocument("COURSES");
 
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.update_syllabus);
+        db.getAllCourses();
+        List<Course> courses = db.getAll_course();
+        String[] items = new String[courses.size()];
+        int i =0;
+        for (Course x : courses){
+            items[i]=x.getCid();
+            i++;
+
+        }
+//get the spinner from the xml.
+        Spinner dropdown = findViewById(R.id.spinner1);
+//create a list of items for the spinner.
+
+//create an adapter to describe how the items are displayed, adapters are used in several places in android.
+//There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+//set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter2);
+
+
+
+
+        ListView list;
+        //Set Up managing data
 
         adapter=new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_list_item_1,
