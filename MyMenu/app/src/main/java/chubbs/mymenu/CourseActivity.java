@@ -40,6 +40,7 @@ public class CourseActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         db = new ManageData();
         db.getAllCourses();
+        db.addDocument("COURSES");
         setContentView(R.layout.activity_course);
 
         adapter=new ArrayAdapter<>(getApplicationContext(),
@@ -50,7 +51,7 @@ public class CourseActivity extends BaseActivity {
         courselist.setAdapter(adapter);
         input =  findViewById(R.id.courseinput);
 
-        db.addDocument("COURSES");
+
 
         addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
         addCourse.setOnClickListener(new View.OnClickListener() {

@@ -11,28 +11,30 @@ import java.util.Map;
 public class Task {
 
     public String name;
-    public int weight;
-    public String description;
-    public Map<String, Boolean> stars = new HashMap<>();
+    public String priority;
+    public String due_date;
+    public String due_time;
 
     public Task() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Task(String name,int weight,String description) {
+    public Task(String name,String priority,String due_date,String due_time) {
         this.name = name;
-        this.weight = weight;
-        this.description = description;
-
+        this.priority = priority;
+        this.due_date = due_date;
+        this.due_time = due_time;
     }
 
     // [START post_to_map]
     @Exclude
     public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("uid", name);
-
-        return result;
+        Map<String, Object> taskMap  = new HashMap<>();
+        taskMap.put("name",this.name);
+        taskMap.put("priority",this.priority);
+        taskMap.put("due_date",this.due_date);
+        taskMap.put("due_time",this.due_time);
+        return taskMap;
     }
     // [END post_to_map]
 
