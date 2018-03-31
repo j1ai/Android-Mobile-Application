@@ -106,8 +106,9 @@ public class ManageCoursesActivity extends MainActivity {
 
         deleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                //db.deleteCourseField();
-                Toast.makeText(getBaseContext(), "Deleted", Toast.LENGTH_LONG).show();
+                db.deleteCourseField(courseName);
+                Toast.makeText(getBaseContext(), "Deleted " + courseName, Toast.LENGTH_LONG).show();
+                //refresh display
             }
         });
 
