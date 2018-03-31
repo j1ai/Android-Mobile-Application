@@ -49,6 +49,7 @@ public class TaskActivity extends MainActivity{
         View alertLayout = inflater.inflate(R.layout.add_task_alert, null);
         final EditText etUsername = alertLayout.findViewById(R.id.taskName);
         final Spinner etPriority = alertLayout.findViewById(R.id.prioritySpinner);
+        final EditText etDuration = alertLayout.findViewById(R.id.duration);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.priorities, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etPriority.setAdapter(adapter);
@@ -76,8 +77,10 @@ public class TaskActivity extends MainActivity{
             public void onClick(DialogInterface dialog, int which) {
                 String taskName = etUsername.getText().toString();
                 String priority = etPriority.getSelectedItem().toString();
+                int duration = Integer.parseInt(etDuration.getText().toString());
                 int taskHour = timePicker.getCurrentHour();
                 int taskMinute = timePicker.getCurrentMinute();
+
                 int day = datePicker.getDayOfMonth();
                 int month = datePicker.getMonth();
                 int year = datePicker.getYear();
