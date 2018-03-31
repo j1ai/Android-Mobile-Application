@@ -27,6 +27,12 @@
         <item>Major</item>
         <item>Minor</item>
     </string-array>
+    
+    <string-array name="priorities">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
 
     <string name="crsname">Name</string>
     <string name="newassessment">New Assessment (Ex. A1, Midterm)</string>
