@@ -27,8 +27,8 @@ import chubbs.mymenu.models.Course;
 
 public class ManageCoursesActivity extends MainActivity {
     String courseName;
-    ArrayAdapter adapter;
     ListView listView;
+    ArrayAdapter adapter;
     List<Course> courseids = new ArrayList<Course>();
     List<String> courses = new ArrayList<String>();
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
@@ -111,7 +111,7 @@ public class ManageCoursesActivity extends MainActivity {
                 db.deleteCourseField(courseName);
                 Toast.makeText(getBaseContext(), "Deleted " + courseName, Toast.LENGTH_LONG).show();
                 adapter.notifyDataSetChanged();
-                listView.refreshDrawableState();
+                listView.requestLayout();
             }
         });
 
