@@ -34,7 +34,7 @@ public class TaskActivity extends MainActivity {
         });
         
         FloatingActionButton addExtracurricular = (FloatingActionButton) findViewById(R.id.addExtracurricularButton);
-        addCourse.setonClickListener(new View.OnClickListener(){
+        addCourse.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 drawAddTaskPopUp();
             }
@@ -45,7 +45,7 @@ public class TaskActivity extends MainActivity {
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.add_task_alert, null);
         final EditText etUsername = alertLayout.findViewById(R.id.taskName);
-        final EditText etEmail = alertLayout.findViewById(R.id.taskPriority);
+        final EditText etPriority = alertLayout.findViewById(R.id.taskPriority);
         final TimePicker datePicker = alertLayout.findViewById(R.id.timePicker);;
 
 
@@ -68,7 +68,9 @@ public class TaskActivity extends MainActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String user = etUsername.getText().toString();
-                String pass = etEmail.getText().toString();
+                String priority = etPriority.getText().toString();
+                int taskHour = datePicker.getHour();
+                int taskMinute = datePicker.getMinute();
             }
         });
         AlertDialog dialog = alert.create();
