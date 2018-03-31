@@ -38,7 +38,7 @@
                 android:layout_margin="1dp"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text=" Time "
+                android:text="15:00-17:00"
 
                 android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
                 android:layout_margin="1dp"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="Task"
+                android:text="CSC301 Assignment 4"
 
                 android:textStyle="bold" />
 
@@ -65,7 +65,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="88dp"
-        android:text="Welcome Sandy. Here is your schedule for today."
+        android:text="Welcome thisispatrick@hotmail.com. Here is your schedule for today."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
