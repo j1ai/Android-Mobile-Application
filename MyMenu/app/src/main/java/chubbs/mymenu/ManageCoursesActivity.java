@@ -27,6 +27,8 @@ import chubbs.mymenu.models.Course;
 
 public class ManageCoursesActivity extends MainActivity {
     String courseName;
+    ArrayAdapter adapter;
+    ListView listView;
     List<Course> courseids = new ArrayList<Course>();
     List<String> courses = new ArrayList<String>();
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
@@ -34,7 +36,7 @@ public class ManageCoursesActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ManageData dataBase = new ManageData();
+
         db.getAllCourses();
         courseids = db.getAll_course();
 
@@ -50,11 +52,11 @@ public class ManageCoursesActivity extends MainActivity {
         //since we're inheriting main activity. just call the super method to create our toolbar
         super.createToolbar();
 
-        ArrayAdapter adapter = new ArrayAdapter<>(this,
+        adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
                 courses);
 
-        final ListView listView = findViewById(R.id.mobile_list);
+        listView = findViewById(R.id.mobile_list);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -108,7 +110,8 @@ public class ManageCoursesActivity extends MainActivity {
             public void onClick(DialogInterface dialog, int id) {
                 db.deleteCourseField(courseName);
                 Toast.makeText(getBaseContext(), "Deleted " + courseName, Toast.LENGTH_LONG).show();
-                //refresh display
+                adapter.notifyDataSetChanged();
+                listView.refreshDrawableState();
             }
         });
 
