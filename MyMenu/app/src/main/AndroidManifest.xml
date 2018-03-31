@@ -23,6 +23,10 @@
             android:label="@string/title_app"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name=".ViewScheduleActivity"
+            android:label="@string/title_app"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".TaskActivity"
             android:label="@string/title_app"
             android:theme="@style/AppTheme.NoActionBar" />
