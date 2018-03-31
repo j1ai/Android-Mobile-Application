@@ -7,7 +7,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -26,6 +25,7 @@ import chubbs.mymenu.CourseActivity;
 import chubbs.mymenu.SignInActivity;
 import chubbs.mymenu.models.Assessment;
 import chubbs.mymenu.models.Course;
+import chubbs.mymenu.models.Task;
 import chubbs.mymenu.models.Job;
 import chubbs.mymenu.models.User;
 
@@ -37,6 +37,7 @@ public class ManageData extends BaseActivity{
     private static final String TAG = "ManageData";
     private static List<Course> all_course;
     private static List<Assessment> all_assessment;
+    private static List<Task> all_task;
 
     public ManageData(){
         all_course = new ArrayList<>();
@@ -55,6 +56,11 @@ public class ManageData extends BaseActivity{
                     .set(data, SetOptions.merge());
         }
         else if (doc == "ASSESSMENTS"){
+            Map<String, Object> data = new HashMap<>();
+            mFirestore.collection(uid).document(doc)
+                    .set(data, SetOptions.merge());
+        }
+        else if (doc == "TASKS"){
             Map<String, Object> data = new HashMap<>();
             mFirestore.collection(uid).document(doc)
                     .set(data, SetOptions.merge());
@@ -78,6 +84,17 @@ public class ManageData extends BaseActivity{
                 .set(data, SetOptions.merge());
     }
 
+    public void addTask(Task newTask){
+        Map<String, Map<String, Object>> data = new HashMap<>();
+        data.put(newTask.name,newTask.toMap());
+        mFirestore.collection(uid).document("TASKS")
+                .set(data, SetOptions.merge());
+    }
+
+
+
+
+
     // Delete all related Course documents
     // (i.e including all assessments related to this course)
     public void deleteCourseField(String name) {
@@ -87,6 +104,9 @@ public class ManageData extends BaseActivity{
         mFirestore.collection(uid).document("ASSESSMENTS")
                 .update(
                         name,FieldValue.delete());
+        //deleteCourseFromList(name);
+        //deleteRelatedAssessments(name);
+        getAllCourses();
         getAllAssessments();
     }
 
@@ -108,6 +128,44 @@ public class ManageData extends BaseActivity{
             }
         }
     }
+
+    public void deleteRelatedAssessments(String course_name){
+        for (Assessment assessment: all_assessment){
+            if (assessment.course.equals(course_name)){
+                all_assessment.remove(assessment);
+            }
+        }
+    }
+
+    public void deleteCourseFromList(String course_name){
+        for (Course course: all_course){
+            if (course.cid.equals(course_name)){
+                all_course.remove(course);
+            }
+        }
+    }
+
+    public void deleteTaskFromList(String task_name){
+        for (Task task: all_task){
+            if (task.name.equals(task_name)){
+                all_task.remove(task);
+            }
+        }
+    }
+
+    // Delete all related Task documents
+    public void deleteTaskField(String name) {
+        mFirestore.collection(uid).document("TASKS")
+                .update(
+                        name,FieldValue.delete());
+        deleteTaskFromList(name);
+    }
+
+
+
+
+
+
 
     // Only Update Assessment Attributes: weight, deadline
     // Since the name of the Assessment and the course name are stored as a key,
@@ -135,10 +193,43 @@ public class ManageData extends BaseActivity{
         }
     }
 
+    // Only Update Task Attributes: due_date, due_time,priority
+    // Since the name of the Task is stored as a key,
+    // which is not preferred to be modified
+    public void updateTask(Task task){
+        String path = task.name;
+        String priority_path = path + "." + "priority";
+        String duedate_path = path + "." + "due_date";
+        String duetime_path = path + "." + "deadline";
+        mFirestore.collection(uid).document("ASSESSMENTS")
+                .update(
+                        duedate_path,task.due_date,
+                        duetime_path,task.due_time,
+                        priority_path,task.priority
+                );
+        // [END update_delete_field]
+        modifyTaskFromList(task);
+    }
+
+    public void modifyTaskFromList(Task newTask){
+        for (Task task: all_task){
+            if (task.name.equals(newTask.name)){
+                task.due_time = newTask.due_time;
+                task.due_date = newTask.due_date;
+                task.priority = newTask.priority;
+            }
+        }
+    }
+
     // User Friendly method to simply change the name of the course all related docs
     // If the user needs to change a course name, and which it has already has related assessments
     public void updateCourse(String old_course_name,String new_course_name) {
     }
+
+
+
+
+
 
     // Return the Specified Objects
     // For example, return CSC301 course in document ("COURSES")
@@ -161,6 +252,20 @@ public class ManageData extends BaseActivity{
         return null;
     }
 
+    public Task getTask(final String taskid) {
+        for (Task task: all_task){
+            if (task.name.equals(taskid)){
+                return task;
+            }
+        }
+        return null;
+    }
+
+
+
+
+
+
     public static boolean checkContainsCourse(String courseid){
         for (Course course: all_course){
             if (course.cid.equals(courseid)){
@@ -178,6 +283,18 @@ public class ManageData extends BaseActivity{
         }
         return true;
     }
+
+    public static boolean checkContainsTask(String taskid){
+        for (Task task: all_task){
+            if (task.name.equals(taskid)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
 
 
     // Return an ArrayList of Custom Objects in a specified documents
@@ -205,6 +322,10 @@ public class ManageData extends BaseActivity{
     public static List<Course> getAll_course(){
         return all_course;
     }
+
+
+
+
 
 
 
@@ -242,6 +363,40 @@ public class ManageData extends BaseActivity{
 
     public static List<Assessment> getAll_assessment(){
         return all_assessment;
+    }
+
+
+
+
+
+
+    // Return an ArrayList of Custom Objects in a specified documents
+    // Return all Task Objects in "TASKS"
+    public static void getAllTasks() {
+        // [START get_multiple_all]
+        DocumentReference docRef = FirebaseFirestore.getInstance()
+                .collection(uid).document("TASKS");
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Map<String, Object> forms = documentSnapshot.getData();
+                for (Map.Entry<String, Object> form: forms.entrySet()) {
+                    Map<String, Object> values = (Map<String, Object>)form.getValue();
+                    String name = values.get("name").toString();
+                    if (checkContainsTask(name)){
+                        String due_date = values.get("due_date").toString();
+                        String due_time = values.get("due_time").toString();
+                        String priority = values.get("priority").toString();
+                        Task newTask = new Task(name,priority,due_date,due_time);
+                        all_task.add(newTask);
+                    }
+                }
+            }
+        });
+    }
+
+    public static List<Task> getAll_task(){
+        return all_task;
     }
 
 

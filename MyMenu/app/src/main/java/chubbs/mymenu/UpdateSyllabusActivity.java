@@ -35,7 +35,7 @@ public class UpdateSyllabusActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db.addDocument("ASSESSMENTS");
-        db.addDocument("COURSES");
+        db.addDocument("TASKS");
         all = new ArrayList<>();
         setContentView(R.layout.update_syllabus);
         List<Course> courses = db.getAll_course();

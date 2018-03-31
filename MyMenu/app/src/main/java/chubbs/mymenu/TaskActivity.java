@@ -24,6 +24,8 @@ import android.widget.Toast;
 
 import java.util.Date;
 
+import chubbs.mymenu.models.Task;
+
 public class TaskActivity extends MainActivity{
 
     private static final String TAG = "TaskActivity";
@@ -69,18 +71,26 @@ public class TaskActivity extends MainActivity{
             }
         });
 
-        alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+        AlertDialog.Builder done = alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String user = etUsername.getText().toString();
+                String taskName = etUsername.getText().toString();
                 String priority = etPriority.getSelectedItem().toString();
                 int duration = Integer.parseInt(etDuration.getText().toString());
-                int taskHour = timePicker.getHour();
-                int taskMinute = timePicker.getMinute();
+                int taskHour = timePicker.getCurrentHour();
+                int taskMinute = timePicker.getCurrentMinute();
+
                 int day = datePicker.getDayOfMonth();
                 int month = datePicker.getMonth();
                 int year = datePicker.getYear();
+
+                String min = String.valueOf(taskMinute);
+                String hour = String.valueOf(taskHour);
+                String due_time = hour + ":" + min;
+                String due_date = day + "/" + month + "/" + year;
+                Task newTask = new Task(taskName,priority,due_date,due_time);
+                db.addTask(newTask);
             }
         });
         AlertDialog dialog = alert.create();
@@ -90,7 +100,6 @@ public class TaskActivity extends MainActivity{
 
 
 }
-
 
 
 
