@@ -24,30 +24,22 @@ import android.widget.Toast;
 
 import java.util.Date;
 
-public class TaskActivity extends AppCompatActivity{
+public class TaskActivity extends MainActivity{
 
     private static final String TAG = "TaskActivity";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task2);
 
 
-        FloatingActionButton addCourse = (FloatingActionButton) findViewById(R.id.addAcademicTaskButton);
+        FloatingActionButton addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
         addCourse.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 drawAddTaskPopUp();
             }
         });
-
-        FloatingActionButton addExtracurricular = (FloatingActionButton) findViewById(R.id.addExtracurricularButton);
-        addCourse.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                drawAddTaskPopUp();
-            }
-        });
-
     }
 
     public void drawAddTaskPopUp(){
