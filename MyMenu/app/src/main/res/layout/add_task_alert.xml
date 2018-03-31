@@ -39,15 +39,11 @@
             android:layout_weight=".3"
             android:text="Priority:" />
 
-        <EditText
-            android:id="@+id/taskPriority"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:hint="LOW, MEDIUM, OR HIGH"
-            android:imeOptions="actionDone"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+        <Spinner
+            android:id="@+id/prioritySpinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
