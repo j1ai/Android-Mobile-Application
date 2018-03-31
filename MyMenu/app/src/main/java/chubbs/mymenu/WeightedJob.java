@@ -46,6 +46,9 @@ public class WeightedJob {
     // profit from given array of jobs
     static ArrayList<Job> schedule(Job jobs[])
     {
+        if (jobs.length==0){
+            return new ArrayList<Job>();
+        }
         // Sort jobs according to finish time
         Arrays.sort(jobs, new JobComparator());
 
