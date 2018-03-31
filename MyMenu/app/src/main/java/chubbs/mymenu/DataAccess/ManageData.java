@@ -109,24 +109,35 @@ public class ManageData extends BaseActivity{
         }
     }
 
-    public void updateCourse(Course upCourse) {
-        // [START update_document]
-        DocumentReference courseRef = mFirestore.collection(uid).document("COURSES");
-        courseRef
-                .update("name", upCourse.getCid())
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully updated!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error updating document", e);
-                    }
-                });
-        // [END update_document]
+    // Only Update Assessment Attributes: weight, deadline
+    // Since the name of the Assessment and the course name are stored as a key,
+    // which is not preferred to be modified
+    public void updateAssessment(Assessment assessment){
+        String path = assessment.course + "." + assessment.name;
+        String weight_path = path + "." + "weight";
+        String w = String.valueOf(assessment.weight);
+        String deadline_path = path + "." + "deadline";
+        mFirestore.collection(uid).document("ASSESSMENTS")
+                .update(
+                        weight_path,w,
+                        deadline_path,assessment.deadline
+                );
+        // [END update_delete_field]
+        modifyAssessmentFromList(assessment);
+    }
+
+    public void modifyAssessmentFromList(Assessment assess){
+        for (Assessment assessment: all_assessment){
+            if (assessment.course.equals(assess.course) && assessment.name.equals(assess.name)){
+                assessment.weight = assess.weight;
+                assessment.deadline = assess.deadline;
+            }
+        }
+    }
+
+    // User Friendly method to simply change the name of the course all related docs
+    // If the user needs to change a course name, and which it has already has related assessments
+    public void updateCourse(String old_course_name,String new_course_name) {
     }
 
     // Return the Specified Objects
@@ -194,6 +205,8 @@ public class ManageData extends BaseActivity{
     public static List<Course> getAll_course(){
         return all_course;
     }
+
+
 
     // Return an ArrayList of Custom Objects in a specified documents
     // Return all Course Objects in "ASSESSMENT"
