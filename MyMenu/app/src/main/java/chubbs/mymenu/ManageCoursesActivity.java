@@ -74,6 +74,8 @@ public class ManageCoursesActivity extends MainActivity {
 
         final EditText inputText = new EditText(this);
         inputText.setInputType(InputType.TYPE_CLASS_TEXT);
+        //inputText.setText(courseName);
+        inputText.setHint("Rename Course");
         builder.setView(inputText);
 
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
