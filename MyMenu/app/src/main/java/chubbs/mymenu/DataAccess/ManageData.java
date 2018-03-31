@@ -105,7 +105,8 @@ public class ManageData extends BaseActivity{
                 .update(
                         name,FieldValue.delete());
         //deleteCourseFromList(name);
-        //deleteRelatedAssessments(name);
+        all_course.clear();
+        all_assessment.clear();
         getAllCourses();
         getAllAssessments();
     }
@@ -158,7 +159,8 @@ public class ManageData extends BaseActivity{
         mFirestore.collection(uid).document("TASKS")
                 .update(
                         name,FieldValue.delete());
-        deleteTaskFromList(name);
+        all_task.clear();
+        getAllTasks();
     }
 
 
