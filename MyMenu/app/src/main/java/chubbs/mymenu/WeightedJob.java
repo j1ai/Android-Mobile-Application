@@ -105,12 +105,11 @@ public class WeightedJob {
         int todayNum = 0;
 
         Job result[] = new Job[assessments.length];
-
         for (int i = 0; i < assessments.length; i++){
-
-            day = Integer.parseInt(assessments[i].deadline.substring(0,2));
-            month = Integer.parseInt(assessments[i].deadline.substring(3,5)) - 1;
-            year = Integer.parseInt(assessments[i].deadline.substring(6,10));
+            String [] tokenizedDate = assessments[i].deadline.split("/");
+            day = Integer.parseInt(tokenizedDate[0]);
+            month = Integer.parseInt(tokenizedDate[1]) - 1;
+            year = Integer.parseInt(tokenizedDate[2]);
 
             Calendar myCalendar = new GregorianCalendar(year, month, day);
             Date myDate = myCalendar.getTime();
