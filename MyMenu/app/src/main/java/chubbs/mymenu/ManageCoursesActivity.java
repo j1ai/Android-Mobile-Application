@@ -1,6 +1,7 @@
 package chubbs.mymenu;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -53,12 +54,14 @@ public class ManageCoursesActivity extends MainActivity {
                 android.R.layout.simple_list_item_1,
                 courses);
 
-        ListView listView = findViewById(R.id.mobile_list);
+        final ListView listView = findViewById(R.id.mobile_list);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                courseName = (String) listView.getItemAtPosition(position);
+                //Toast.makeText(getBaseContext(), "Yoo chose: " + courseName, Toast.LENGTH_LONG).show();
                 editCoursePopUp();
             }
         });
@@ -82,6 +85,7 @@ public class ManageCoursesActivity extends MainActivity {
         builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 deleteCoursePopUp();
+
             }
         });
 
@@ -102,7 +106,8 @@ public class ManageCoursesActivity extends MainActivity {
 
         deleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getBaseContext(), "As you wish master", Toast.LENGTH_LONG).show();
+                //db.deleteCourseField();
+                Toast.makeText(getBaseContext(), "Deleted", Toast.LENGTH_LONG).show();
             }
         });
 
