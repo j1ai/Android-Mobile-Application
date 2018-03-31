@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,8 +16,10 @@
         <ListView
             android:id="@+id/mobile_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </ListView>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="60dp"></ListView>
 
     </LinearLayout>
 
@@ -22,9 +27,10 @@
         android:id="@+id/label"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_marginTop="60dp"
         android:padding="10dip"
         android:textSize="16sp"
-        android:textStyle="bold" >
-    </TextView>
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
 </android.support.constraint.ConstraintLayout>
