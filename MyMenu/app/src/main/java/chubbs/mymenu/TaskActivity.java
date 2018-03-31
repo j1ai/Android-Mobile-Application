@@ -31,7 +31,7 @@ public class TaskActivity extends MainActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task2);
+        setContentView(R.layout.activity_task);
 
 
         FloatingActionButton addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
