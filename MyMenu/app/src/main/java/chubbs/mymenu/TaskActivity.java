@@ -34,6 +34,11 @@ public class TaskActivity extends MainActivity {
         });
         
         FloatingActionButton addExtracurricular = (FloatingActionButton) findViewById(R.id.addExtracurricularButton);
+        addCourse.setonClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                drawAddTaskPopUp();
+            }
+        });
     }
 
     public void drawAddTaskPopUp(){
