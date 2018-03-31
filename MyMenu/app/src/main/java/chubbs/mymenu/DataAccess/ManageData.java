@@ -104,8 +104,10 @@ public class ManageData extends BaseActivity{
         mFirestore.collection(uid).document("ASSESSMENTS")
                 .update(
                         name,FieldValue.delete());
-        deleteCourseFromList(name);
-        deleteRelatedAssessments(name);
+        //deleteCourseFromList(name);
+        //deleteRelatedAssessments(name);
+        getAllCourses();
+        getAllAssessments();
     }
 
     public void deleteAssessmentField(String course_name,String assess_name) {
