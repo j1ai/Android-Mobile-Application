@@ -1,6 +1,7 @@
 package chubbs.mymenu;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -26,6 +27,8 @@ import chubbs.mymenu.models.Course;
 
 public class ManageCoursesActivity extends MainActivity {
     String courseName;
+    ListView listView;
+    ArrayAdapter adapter;
     List<Course> courseids = new ArrayList<Course>();
     List<String> courses = new ArrayList<String>();
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
@@ -33,7 +36,7 @@ public class ManageCoursesActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ManageData dataBase = new ManageData();
+
         db.getAllCourses();
         courseids = db.getAll_course();
 
@@ -49,16 +52,18 @@ public class ManageCoursesActivity extends MainActivity {
         //since we're inheriting main activity. just call the super method to create our toolbar
         super.createToolbar();
 
-        ArrayAdapter adapter = new ArrayAdapter<>(this,
+        adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
                 courses);
 
-        ListView listView = findViewById(R.id.mobile_list);
+        listView = findViewById(R.id.mobile_list);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                courseName = (String) listView.getItemAtPosition(position);
+                //Toast.makeText(getBaseContext(), "Yoo chose: " + courseName, Toast.LENGTH_LONG).show();
                 editCoursePopUp();
             }
         });
@@ -82,6 +87,7 @@ public class ManageCoursesActivity extends MainActivity {
         builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 deleteCoursePopUp();
+
             }
         });
 
@@ -102,7 +108,10 @@ public class ManageCoursesActivity extends MainActivity {
 
         deleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getBaseContext(), "As you wish master", Toast.LENGTH_LONG).show();
+                db.deleteCourseField(courseName);
+                Toast.makeText(getBaseContext(), "Deleted " + courseName, Toast.LENGTH_LONG).show();
+                adapter.notifyDataSetChanged();
+                listView.requestLayout();
             }
         });
 
