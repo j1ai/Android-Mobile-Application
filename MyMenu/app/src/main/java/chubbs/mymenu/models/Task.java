@@ -12,18 +12,20 @@ public class Task {
 
     public String name;
     public String priority;
-    public String due_date;
-    public String due_time;
+    public String start_date;
+    public int duration;
+    public String start_time;
 
     public Task() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Task(String name,String priority,String due_date,String due_time) {
+    public Task(String name,String priority,String start_date,String start_time,int duration) {
         this.name = name;
         this.priority = priority;
-        this.due_date = due_date;
-        this.due_time = due_time;
+        this.start_date = start_date;
+        this.start_time = start_time;
+        this.duration = duration;
     }
 
     // [START post_to_map]
@@ -32,8 +34,9 @@ public class Task {
         Map<String, Object> taskMap  = new HashMap<>();
         taskMap.put("name",this.name);
         taskMap.put("priority",this.priority);
-        taskMap.put("due_date",this.due_date);
-        taskMap.put("due_time",this.due_time);
+        taskMap.put("start_date",this.start_date);
+        taskMap.put("start_time",this.start_time);
+        taskMap.put("duration",this.duration);
         return taskMap;
     }
     // [END post_to_map]
