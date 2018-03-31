@@ -63,7 +63,6 @@ public class ManageCoursesActivity extends MainActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 courseName = (String) listView.getItemAtPosition(position);
-                //Toast.makeText(getBaseContext(), "Yoo chose: " + courseName, Toast.LENGTH_LONG).show();
                 editCoursePopUp();
             }
         });
@@ -75,6 +74,8 @@ public class ManageCoursesActivity extends MainActivity {
 
         final EditText inputText = new EditText(this);
         inputText.setInputType(InputType.TYPE_CLASS_TEXT);
+        //inputText.setText(courseName);
+        inputText.setHint("Rename Course");
         builder.setView(inputText);
 
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
@@ -109,9 +110,9 @@ public class ManageCoursesActivity extends MainActivity {
         deleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 db.deleteCourseField(courseName);
+                courses.remove(courseName);
                 Toast.makeText(getBaseContext(), "Deleted " + courseName, Toast.LENGTH_LONG).show();
                 adapter.notifyDataSetChanged();
-                listView.requestLayout();
             }
         });
 
