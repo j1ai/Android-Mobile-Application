@@ -83,7 +83,7 @@ public class MainActivity extends BaseActivity
         if (id == R.id.nav_main) {
             startActivity(new Intent(this, MainActivity.class));
         } else if (id == R.id.nav_schedule) {
-
+            startActivity(new Intent(this, ViewScheduleActivity.class));
         } else if (id == R.id.nav_courses) {
             startActivity(new Intent(this, ManageCoursesActivity.class));
         } else if (id == R.id.nav_tasks) {
