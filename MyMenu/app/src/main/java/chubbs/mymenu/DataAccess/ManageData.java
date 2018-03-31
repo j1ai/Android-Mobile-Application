@@ -199,13 +199,15 @@ public class ManageData extends BaseActivity{
     public void updateTask(Task task){
         String path = task.name;
         String priority_path = path + "." + "priority";
-        String duedate_path = path + "." + "due_date";
-        String duetime_path = path + "." + "deadline";
+        String startdate_path = path + "." + "start_date";
+        String starttime_path = path + "." + "start_time";
+        String duration_path = path + "." + "duration";
         mFirestore.collection(uid).document("ASSESSMENTS")
                 .update(
-                        duedate_path,task.due_date,
-                        duetime_path,task.due_time,
-                        priority_path,task.priority
+                        startdate_path,task.start_date,
+                        starttime_path,task.start_time,
+                        priority_path,task.priority,
+                        duration_path,task.duration
                 );
         // [END update_delete_field]
         modifyTaskFromList(task);
@@ -214,9 +216,10 @@ public class ManageData extends BaseActivity{
     public void modifyTaskFromList(Task newTask){
         for (Task task: all_task){
             if (task.name.equals(newTask.name)){
-                task.due_time = newTask.due_time;
-                task.due_date = newTask.due_date;
+                task.start_time = newTask.start_time;
+                task.start_date = newTask.start_date;
                 task.priority = newTask.priority;
+                task.duration = newTask.duration;
             }
         }
     }
@@ -384,10 +387,12 @@ public class ManageData extends BaseActivity{
                     Map<String, Object> values = (Map<String, Object>)form.getValue();
                     String name = values.get("name").toString();
                     if (checkContainsTask(name)){
-                        String due_date = values.get("due_date").toString();
-                        String due_time = values.get("due_time").toString();
+                        String start_date = values.get("start_date").toString();
+                        String start_time = values.get("start_time").toString();
                         String priority = values.get("priority").toString();
-                        Task newTask = new Task(name,priority,due_date,due_time);
+                        String duration = values.get("duration").toString();
+                        int d = Integer.parseInt(duration);
+                        Task newTask = new Task(name,priority,start_date,start_time,d);
                         all_task.add(newTask);
                     }
                 }
