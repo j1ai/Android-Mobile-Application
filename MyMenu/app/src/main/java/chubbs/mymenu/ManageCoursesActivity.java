@@ -8,10 +8,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import chubbs.mymenu.DataAccess.ManageData;
 import chubbs.mymenu.models.Course;
 
 public class ManageCoursesActivity extends MainActivity {
+    String courseName;
     List<Course> courseids = new ArrayList<Course>();
     List<String> courses = new ArrayList<String>();
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
@@ -31,8 +34,9 @@ public class ManageCoursesActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //ManageData dataBase = new ManageData();
-        courseids = db.getAllCourses();
-        //courseids = db.getAll_course();
+        db.getAllCourses();
+        courseids = db.getAll_course();
+
         if (courseids.isEmpty()) {
             Log.d("NullTest", "Courses is null :(");
         }
@@ -64,9 +68,14 @@ public class ManageCoursesActivity extends MainActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Course");
 
+        final EditText inputText = new EditText(this);
+        inputText.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(inputText);
+
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getBaseContext(), "Save?", Toast.LENGTH_LONG).show();
+                courseName = inputText.getText().toString();
+                Toast.makeText(getBaseContext(), courseName, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -78,7 +87,7 @@ public class ManageCoursesActivity extends MainActivity {
 
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getBaseContext(), "Cancel?", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Cancelled", Toast.LENGTH_LONG).show();
             }
         });
 
