@@ -34,7 +34,7 @@ public class TaskActivity extends MainActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-
+        //db.getAllTasks();
 
         FloatingActionButton addCourse = (FloatingActionButton) findViewById(R.id.addcourseButton);
         addCourse.setOnClickListener(new View.OnClickListener(){
@@ -45,6 +45,7 @@ public class TaskActivity extends MainActivity{
     }
 
     public void drawAddTaskPopUp(){
+
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.add_task_alert, null);
         final EditText etUsername = alertLayout.findViewById(R.id.taskName);
@@ -87,9 +88,9 @@ public class TaskActivity extends MainActivity{
 
                 String min = String.valueOf(taskMinute);
                 String hour = String.valueOf(taskHour);
-                String due_time = hour + ":" + min;
-                String due_date = day + "/" + month + "/" + year;
-                Task newTask = new Task(taskName,priority,due_date,due_time);
+                String start_time = hour + ":" + min;
+                String start_date = day + "/" + month + "/" + year;
+                Task newTask = new Task(taskName,priority,start_date,start_time,duration);
                 db.addTask(newTask);
             }
         });
