@@ -46,6 +46,7 @@ public class ManageCoursesActivity extends MainActivity {
 
         for (Course course : courseids) {
             courses.add(course.getCid());
+            Log.d("CourseTest", course.getCid());
         }
         setContentView(R.layout.activity_manage_courses);
 
