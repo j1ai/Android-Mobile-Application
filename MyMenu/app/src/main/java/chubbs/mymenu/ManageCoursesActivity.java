@@ -63,7 +63,6 @@ public class ManageCoursesActivity extends MainActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 courseName = (String) listView.getItemAtPosition(position);
-                //Toast.makeText(getBaseContext(), "Yoo chose: " + courseName, Toast.LENGTH_LONG).show();
                 editCoursePopUp();
             }
         });
