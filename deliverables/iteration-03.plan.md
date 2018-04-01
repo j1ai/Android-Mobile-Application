@@ -11,21 +11,26 @@
 
 List the most significant changes you made to your process (if any).
 
- * 1) The team imposed solid deadlines on when members should be done their tasks, as opposed to the last deliverable where members finished their parts at their own pace.
+ 1) The team imposed solid deadlines on when members should be done their tasks, as opposed to the last deliverable where members finished their parts at their own pace.
  * This change should make it so that the parts of the app that need to be finished first are completed. Also, it makes connecting pages more streamlined because the parts which are going to be connected will be have relatively the same deadline date. Additionally, it allows for clear prioritization of tasks.
  
  
 #### Roles & responsibilities
 
- * Gurkaran -- Front End Developer (Main Page) and Meeting Lead -- Responsible for implementing 'add' and 'delete' capabilities for the majors, courses, and assignments parts of the main menu. Also is responsible for fixing the 'modify' function for assignments. Other responsibilities include leading the team meetings and facilitating the other members towards clear goals.   
- *Alexander -- Lead Designer and Quality Control -- Responsible for connecting all the parts of the front end together, ensuring that the login page is fully operational with invalid login and repeated registration detection, and making sure that the app knows if a user is logged in. Also, add a dropdown menu that allows for easy navigation between registration pages
- * 
+ * Gurkaran -- Front End Developer (Main Page and Menu) and Meeting Lead -- Responsible for implementing 'add' and 'delete' capabilities for the majors, courses, and assignments parts of the main menu. Also is responsible for fixing the 'modify' function for assignments. Other responsibilities include leading the team meetings and facilitating the other members towards clear goals.   
+ * Alexander -- Lead Designer and Quality Control -- Responsible for connecting all the parts of the front end together, and adding detection capabilities to the login page which includes invalid login and repeated registration detection. Also responsible for standardizing inputs for dates, weight, and time in the task page as well as standardizing front end layout with the persisting menu. 
+ * Michael -- Front End Developer (Main Page) and Algorithm Helper -- Responsible for modifying the main page to only display the most important task, which is determined by priority, and help the Algorithm Lead craft and test the main algorithm for the schedule optimizer of the app. 
+ * James -- Algorithm Helper and Front End Developer (Registration Page 1) -- Responsible for assisting the Algorithm Lead in crafting and testing the main algorithm and fixing any issues that the 1st registration page has from the previous deliverable
+ * Justn -- Database Manager -- Responsible for designing data models to provide a framwork for users' data to be used within the app by providing a specific definition and format. Also responsible for implementing a systematic database with FireBase to ensure user data persists
+ * Sujith -- Algorithm Lead -- Respnosible for crafting and testing the schedule optimizer algorithm such that it correctly takes in all the user input from the app and outputs an optimized work schedule. Implement weighted interval scheduling and apply it to our specific problem.
+ * Kyle -- Front End Developer (Task Page) and Meeting Minutes Taker -- Responsible for cleaning up task page and adding options to include priority, start date-time, and task duration when a new task is added. Also responsible for keeping minutes for all team meetings and writing up the planning and review meeting overviews. 
 
 #### Events
 
 Describe meetings (and other events) you are planning to have:
-
- * 
+ * Mid-Week Update Meeting (online meeting): Discuss how close each person is to meeting the deadline on their part of the deliverable, determine whether parts of the app are ready to be connected, and updates on the general progress of the deliverable.
+ 
+ 
 #### Artifacts
 
 List/describe the artifacts you will produce in order to organize your team.       
