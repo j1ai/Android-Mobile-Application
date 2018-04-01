@@ -12,7 +12,7 @@
 List the most significant changes you made to your process (if any).
 
  1) The team imposed solid deadlines on when members should be done their tasks, as opposed to the last deliverable where members finished their parts at their own pace.
- * This change should make it so that the parts of the app that need to be finished first are completed. Also, it makes connecting pages more streamlined because the parts which are going to be connected will be have relatively the same deadline date. Additionally, it allows for clear prioritization of tasks.
+ * This change should make it so that the parts of the app that need to be finished first are completed. Also, it makes connecting pages more streamlined because the parts which are going to be connected will be have relatively the same deadline date. Additionally, it allows for clear prioritization of tasks. 
  
  
 #### Roles & responsibilities
@@ -29,17 +29,16 @@ List the most significant changes you made to your process (if any).
 
 Describe meetings (and other events) you are planning to have:
  * Mid-Week Update Meeting (online meeting): Discuss how close each person is to meeting the deadline on their part of the deliverable, determine whether parts of the app are ready to be connected, and updates on the general progress of the deliverable.
+ * Review Meeting (In Person Tutorial): March 29, Establish which tasks were completed on time, which tasks still need to be done and why they were not completed by the deadline. Also iron out any remaining issues with the app and plan the fixes as a group. Finally discuss how to film the final demo video.
  
  
 #### Artifacts
 
 List/describe the artifacts you will produce in order to organize your team.       
 
- * Artifacts can be to-do lists, task boards, schedule(s), etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
+ * Written To Do List: Reference in GitHub = project-team-16/deliverables/To Do List and Roles
+   * This list contains the responsibilities of all the members of the group, and it is put in order of priority, we want to prioritize serializing all the data first because that is the backbone of our app's functionality. If the data cannot persist, then there will be no way for us to preserve an optimized schedule. After that, the interval scheduling algorithm which will be how our optimized schedule gets produced will be the next priority, and this is because this algorithm is key to a fundamental part of our MVP. All the tasks after that have to do with cleaning up code from the last deliverable, standardizing everything, and connecting all the parts of the app
+ *
 
 #### Git / GitHub workflow
 
