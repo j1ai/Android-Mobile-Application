@@ -11,21 +11,21 @@
 
 List the most significant changes you made to your process (if any).
 
- * The team imposed solid deadlines on when members should be done their tasks, as opposed to the last deliverable where members finished their parts when they could.
-  -
+ * 1) The team imposed solid deadlines on when members should be done their tasks, as opposed to the last deliverable where members finished their parts at their own pace.
+ * This change should make it so that the parts of the app that need to be finished first are completed. Also, it makes connecting pages more streamlined because the parts which are going to be connected will be have relatively the same deadline date. Additionally, it allows for clear prioritization of tasks.
+ 
  
 #### Roles & responsibilities
 
-Describe the different roles on the team and the responsibilities associated with each role.
+ * Gurkaran -- Front End Developer (Main Page) and Meeting Lead -- Responsible for implementing 'add' and 'delete' capabilities for the majors, courses, and assignments parts of the main menu. Also is responsible for fixing the 'modify' function for assignments. Other responsibilities include leading the team meetings and facilitating the other members towards clear goals.   
+ *Alexander -- Lead Designer and Quality Control -- Responsible for connecting all the parts of the front end together, ensuring that the login page is fully operational with invalid login and repeated registration detection, and making sure that the app knows if a user is logged in. Also, add a dropdown menu that allows for easy navigation between registration pages
+ * 
 
 #### Events
 
 Describe meetings (and other events) you are planning to have:
 
- * When and where? In-person or online?
- * What's the **purpose** of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
-
+ * 
 #### Artifacts
 
 List/describe the artifacts you will produce in order to organize your team.       
