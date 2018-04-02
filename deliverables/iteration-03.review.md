@@ -17,6 +17,19 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
 
+
+* Deciding to impose solid deadlines for tasks allowed for more efficient work and clear priorities. We were able to approximately know when to expect an aspect of our project to be ready so that we could plan and build on it quickly. For example, persisting the data of our app using Firebase was a major task and so we planned deadlines accordingly. Then using this, we were able to quickly develop more front end capabilities on top. This was an overall successful decision since we may not have met our final deadline if we were held back by a slow working pace.
+
+* Assigning multiple people to major tasks such as front end developing and algorithm design allowed for an even distribution of workload. This was successful since all our tasks were completed on time.
+
+To-do list and Role Distribution Artifact: https://github.com/csc301-winter-2018/project-team-16/blob/master/deliverables/To%20Do%20List%20and%20Roles.jpg 
+
+* Taking notes during meetings allowed us to keep track of all ideas that were brought up and how they would be implemented.
+
+Planning Meeting Minutes Artifact: https://github.com/csc301-winter-2018/project-team-16/blob/master/deliverables/Planning%20Meeting%20Minutes.jpg
+
+Review Meeting Minutes Artifact: https://github.com/csc301-winter-2018/project-team-16/blob/master/deliverables/Review%20Meeting%20Minutes.jpg
+
 #### Decisions that did not turn out as well as we hoped
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
@@ -25,6 +38,9 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
  * Ordered from most to least important.
  * Feel free to refer/link to process artifact(s).
 
+ *  
+ 
+ * We used a group chat on Facebook Messenger as a means to discuss the project outside of scheduled meetings. At times this became a disorganized form of communication as we had 6 people actively discussing different things and it was hard to keep track of ideas. 
 
 #### Planned changes
 
