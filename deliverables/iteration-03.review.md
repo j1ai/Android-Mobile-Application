@@ -38,9 +38,9 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
  * Ordered from most to least important.
  * Feel free to refer/link to process artifact(s).
 
- *  
+ * Our Github workflow could have been improved through better communication as there were cases where we accidently worked on outdated code.
  
- * We used a group chat on Facebook Messenger as a means to discuss the project outside of scheduled meetings. At times this became a disorganized form of communication as we had 6 people actively discussing different things and it was hard to keep track of ideas. 
+ * We used a group chat on Facebook Messenger as a means to discuss the project outside of scheduled meetings. At times this became a disorganized form of communication as we had 7 people actively discussing different things and it was hard to keep track of ideas. 
 
 #### Planned changes
 
@@ -57,6 +57,17 @@ List any process-related changes you are planning to make (if there are any)
  * From most to least important.
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
  * If a goal/task was not part of the original iteration plan, please mention it.
+ 
+ 
+ * Persisting app data and allowing for database actions such as a user adding and removing their own courses.
+ Database Usage Artifact(): https://github.com/csc301-winter-2018/project-team-16/blob/master/screens/deliverable%203%20screens/pat%20part%202.mp4
+ 
+ * Improving front end capabilities to allow for a standardized input through dropdowns and scrolling dates.
+ Front End Usage Artifact: https://github.com/csc301-winter-2018/project-team-16/tree/master/screens/deliverable%203%20screens 
+ 
+ * Designing an optimizing algoritm
+ Algorithm Pseudocode Artifact: https://github.com/csc301-winter-2018/project-team-16/blob/master/deliverables/Algorithm.txt
+ Algorithm Usage Artifact: https://github.com/csc301-winter-2018/project-team-16/blob/master/screens/deliverable%203%20screens/pat%20part%204.mp4
 
 #### Goals and/or tasks that were planned but not met/completed:
 
