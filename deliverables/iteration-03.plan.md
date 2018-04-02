@@ -37,34 +37,29 @@ Describe meetings (and other events) you are planning to have:
 List/describe the artifacts you will produce in order to organize your team.       
 
  * Written To Do List: Reference in GitHub = project-team-16/deliverables/To Do List and Roles
-   * This list contains the responsibilities of all the members of the group, and it is put in order of priority, we want to prioritize serializing all the data first because that is the backbone of our app's functionality. If the data cannot persist, then there will be no way for us to preserve an optimized schedule. After that, the interval scheduling algorithm which will be how our optimized schedule gets produced will be the next priority, and this is because this algorithm is key to a fundamental part of our MVP. All the tasks after that have to do with cleaning up code from the last deliverable, standardizing everything, and connecting all the parts of the app
- *
+   * This list contains the responsibilities of all the members of the group, and it is put in order of priority, we want to prioritize serializing all the data first because that is the backbone of our app's functionality. If the data cannot persist, then there will be no way for us to preserve an optimized schedule. After that, the interval scheduling algorithm which will be how our optimized schedule gets produced will be the next priority, and this is because this algorithm is key to a fundamental part of our MVP. All the tasks after that have to do with cleaning up code from the last deliverable, standardizing everything, and connecting all the parts of the app.
+ * Meeting Minutes: Reference in GitHub = project-team-15/deliverables/Planning Meeting Minutes and project-team-15/deliverables/Review Meeting Minutes
+   * This artifact is to help write up the planning and review meeting document as part of our deliverable
 
 #### Git / GitHub workflow
 
-Describe your Git / GitHub workflow.     
-Essentially, we want to understand how your team members share a codebase and avoid conflicts.
-
- * Be concise, yet precise.      
-For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Don't forget to **explain why** you chose this workflow.
-
-
+* Everyone works on their own local copies of the repository that they shouldve cloned from their personal fork. When any changes want to be made, it will be pushed to the fork, then a pull request will be submitted.
+* Members of the group who have time will test the new code in order to determine that it is okay to be added to the main product repo. Final say whether the code should make it onto the repo will come from our Lead Designer, Alexander
+* Any conflicts in merging will be handled by Alexander as well.
 
 ## Product
 
 #### Goals and tasks
 
- * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
- * Order the items from most to least important.
- * Feel free (but not obligated) to specify some/all tasks as user stories.
-
+ * Make sure all user data persists when using the app
+ * Complete the schedule optimizer algorithm which will be able to take the data from user input and output a good work schedule
+ * Clean up and standardize front end pages and make sure they are all connected properly
+ 
 #### Artifacts
 
 List/describe the artifacts you will produce in order to present your project idea.
 
- * Artifacts can be text, code, images, videos, interactive mock-ups and/or any other useful artifact you can think of.
- * Make sure to explain the purpose of each artifact (i.e. Why is it on your to-do list? Why is it useful for your team?)
- * Be concise, yet precise.         
-   For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
+ 1) Schedule Optimizer Algorithm: Reference on GitHub = project-team-16/deliverables/Algorithm.txt
+   * This is the most important product artifact because without it, our app would just be another scheduler app. This automated optimizer is what makes the app unique and solves the problem of lack of work organization
+ 2) Cleaned up the pages of the app, and added more functionality to all the pages which included add, delete, and update capabilities to assignments, courses, etc. Also added priorities to tasks. Reference on GitHub = project-team-16/MyMenu/app/src/main/res and project-team-16/MyMenu/app/src/main/java/chubbs/mymenu
+   * This is just a cleaner version of the code, implements the algorithm, and is the final version of the app.
