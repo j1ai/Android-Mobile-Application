@@ -129,7 +129,7 @@ public class WeightedJob {
             //System.out.println(finish);
 
 
-            Job j = new Job(assessments[i].name, start, finish, assessments[i].weight);
+            Job j = new Job(assessments[i].name, start, finish, assessments[i].weight, assessments[i].course);
             result[i] = j;
         }
 
@@ -163,8 +163,8 @@ public class WeightedJob {
     // Driver method to test above
     public static void main(String[] args)
     {
-        Job jobs[] = {new Job("Job1", 1, 2, 50), new Job("Job2", 3, 5, 20),
-                new Job("Job3",6, 19, 100), new Job("Job4",2, 100, 200)};
+        Job jobs[] = {new Job("Job1", 1, 2, 50, ""), new Job("Job2", 3, 5, 20, ""),
+                new Job("Job3",6, 19, 100, ""), new Job("Job4",2, 100, 200, "")};
 
         System.out.println("Optimal profit is: " );
         ArrayList<Job> optimal = schedule(jobs);
@@ -172,10 +172,10 @@ public class WeightedJob {
             System.out.println(optimal.get(i).getName());
         }
 
-        Job jobs2[] = {new Job("Job1", 0, 6, 3), new Job("Job2", 1, 4, 5),
-                new Job("Job3",3, 5, 5), new Job("Job4",3, 8, 8),
-                new Job("Job5",4, 7, 3), new Job("Job6",5, 9, 7),
-                new Job("Job7",6, 10, 3), new Job("Job8",8, 11, 4)};
+        Job jobs2[] = {new Job("Job1", 0, 6, 3, ""), new Job("Job2", 1, 4, 5, ""),
+                new Job("Job3",3, 5, 5, ""), new Job("Job4",3, 8, 8, ""),
+                new Job("Job5",4, 7, 3, ""), new Job("Job6",5, 9, 7, ""),
+                new Job("Job7",6, 10, 3, ""), new Job("Job8",8, 11, 4, "")};
 
         System.out.println("Optimal profit is: " );
         ArrayList<Job> optimal2 = schedule(jobs2);
@@ -186,8 +186,8 @@ public class WeightedJob {
 
 
 
-        Job jobs3[] = {new Job("Job1", 1, 2, 50), new Job("Job2", 1, 2, 20),
-                new Job("Job3",3, 6, 30), new Job("Job4",0, 1, 20)};
+        Job jobs3[] = {new Job("Job1", 1, 2, 50, ""), new Job("Job2", 1, 2, 20, ""),
+                new Job("Job3",3, 6, 30, ""), new Job("Job4",0, 1, 20, "")};
         System.out.println("Optimal profit is: " );
         ArrayList<Job> optimal3 = schedule(jobs3);
         for (int i = 0; i < optimal3.size(); i++) {

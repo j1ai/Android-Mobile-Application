@@ -31,25 +31,15 @@
 
             >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center"
-                android:text="15:00-17:00"
-
-                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/dailyTask"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_column="1"
                 android:layout_margin="1dp"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="CSC301 Assignment 4"
+                android:text="No tasks currently scheduled"
 
                 android:textStyle="bold" />
 
@@ -65,7 +55,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="88dp"
-        android:text="Welcome thisispatrick@hotmail.com. Here is your schedule for today."
+        android:text="Welcome demoaccount@mail.com. Here is your schedule for today."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

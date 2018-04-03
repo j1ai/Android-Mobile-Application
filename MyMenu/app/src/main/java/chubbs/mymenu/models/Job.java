@@ -5,14 +5,16 @@ public class Job {
     private int finishTime;
     private int weight;
     private String name;
+    private String courseCode;
 
     public Job(){}
 
-    public Job(String name_, int start, int finish, int w) {
+    public Job(String name_, int start, int finish, int w, String c) {
         name = name_;
         startTime = start;
         finishTime = finish;
         weight = w;
+        courseCode = c;
     }
 
     public void setStartTime(int startTime) {
@@ -25,6 +27,10 @@ public class Job {
 
     public String getName() {
         return name;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
     }
 
     public int getStartTime() {
