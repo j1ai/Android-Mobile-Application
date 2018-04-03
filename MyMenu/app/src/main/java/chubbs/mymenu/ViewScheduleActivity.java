@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import chubbs.mymenu.models.Course;
 import chubbs.mymenu.DataAccess.ManageData;
 import chubbs.mymenu.models.Assessment;
-
+import java.util.GregorianCalendar;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -76,25 +76,18 @@ public class ViewScheduleActivity extends MainActivity {
                 listOfAssess = assessments.toArray(listOfAssess);
                 Job[] jobs = WeightedJob.convert(listOfAssess);
                 ArrayList<Job> schedule = WeightedJob.schedule(jobs);
-
+                Calendar myCalendar = new GregorianCalendar(year, month-1, day);
+                int integerOfDay = myCalendar.get(Calendar.DAY_OF_YEAR);
                 listItems.clear();
-//                listItems.add("Potato");
-//
-////                listItems.add(course +"     "+ name + "     "
-////                        + w +
-////                        "%     " +
-////                        date);
-//                listItems.add(String.valueOf(jobs.length));
-//                listItems.add(String.valueOf(schedule.size()));
-//
-//                for (Job j : jobs){
-//                    listItems.add(j.getStartTime()+":"+j.getFinishTime()+":"+j.getName());
-//                    //listItems.add(String.valueOf(jobs.length));
-//                }
+                for (Job j : schedule){
+                    if (j.getStartTime()<= integerOfDay && j.getFinishTime() >= integerOfDay) {
+                        listItems.add(j.getCourseCode() + "  " + j.getName());
+                    }
+
+                }
 
 
-//                Assessment newAssessment = new Assessment(course,name,weightvalue,date);
-//                db.addAssessment(newAssessment);
+;
                 adapter.notifyDataSetChanged();
 
 

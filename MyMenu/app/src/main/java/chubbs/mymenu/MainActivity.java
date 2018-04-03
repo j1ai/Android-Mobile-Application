@@ -6,12 +6,17 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import chubbs.mymenu.models.Assessment;
+import chubbs.mymenu.models.Job;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -20,6 +25,16 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        List<Assessment> assessments = db.getAll_assessment();
+        Assessment [] listOfAssess = new Assessment[assessments.size()];
+        listOfAssess = assessments.toArray(listOfAssess);
+        Job[] jobs = WeightedJob.convert(listOfAssess);
+        ArrayList<Job> schedule = WeightedJob.schedule(jobs);
+        TextView taskText = (TextView)findViewById(R.id.dailyTask);
+        if (schedule.size()!=0){
+            taskText.setText(schedule.get(0).getCourseCode() + " " + schedule.get(0).getName());
+        }
+
 
         createToolbar();
     }
